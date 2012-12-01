@@ -24,9 +24,9 @@ class vaisseau
         float getAngle();
 
         //mainFonctions
-        void Shoot(sf::RenderWindow* p_window);
+        virtual void Shoot(sf::RenderWindow* p_window);
         virtual void Move();
-        void onHit(float degat);
+        virtual void onHit(float degat);
         void Draw(sf::RenderWindow* p_window);
 
     protected:

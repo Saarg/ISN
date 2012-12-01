@@ -7,7 +7,9 @@
 class basic_ennemi: public vaisseau
 {
     public:
+        virtual void Shoot(sf::RenderWindow* p_window);
         virtual void Move();
+        virtual void onHit(float degat);
     protected:
     private:
 
