@@ -2,24 +2,24 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
 	<File name="include/badguys/basic_ennemi.h" open="1" top="0" tabpos="6">
-		<Cursor position="185" topLine="0" />
+		<Cursor position="192" topLine="0" />
 	</File>
 	<File name="include/missile.h" open="1" top="0" tabpos="2">
 		<Cursor position="533" topLine="0" />
 	</File>
 	<File name="include/player/vaisseau.h" open="1" top="0" tabpos="4">
-		<Cursor position="841" topLine="0" />
+		<Cursor position="615" topLine="0" />
 	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="366" topLine="0" />
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="927" topLine="0" />
 	</File>
 	<File name="src/badguys/basic_ennemi.cpp" open="1" top="0" tabpos="7">
-		<Cursor position="123" topLine="0" />
+		<Cursor position="248" topLine="0" />
 	</File>
-	<File name="src/missile.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="1423" topLine="37" />
+	<File name="src/missile.cpp" open="1" top="1" tabpos="3">
+		<Cursor position="1179" topLine="6" />
 	</File>
 	<File name="src/player/vaisseau.cpp" open="1" top="0" tabpos="5">
-		<Cursor position="2037" topLine="50" />
+		<Cursor position="2287" topLine="66" />
 	</File>
 </CodeBlocks_layout_file>

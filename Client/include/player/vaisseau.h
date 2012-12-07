@@ -24,10 +24,10 @@ class vaisseau
         float getAngle();
 
         //mainFonctions
-        virtual void Shoot(sf::RenderWindow* p_window);
+        virtual void Shoot();
         virtual void Move();
-        virtual void onHit(float degat);
-        void Draw(sf::RenderWindow* p_window);
+        virtual void onHit(float degat, std::vector<vaisseau*>* entity_tab, int id);
+        void Draw(sf::RenderWindow* p_window, std::vector<vaisseau*>* entity_tab);
 
     protected:
         sf::Shape* m_mainShape;
@@ -37,7 +37,7 @@ class vaisseau
         int m_nbr_msl;
         float life;
 
-        sf::Clock m_clock;
+        int m_shootTime;
     private:
 
 };

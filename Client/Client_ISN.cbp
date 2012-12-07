@@ -14,13 +14,13 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add option="-DSFML_STATIC" />
-					<Add directory="/home/jean/Documents/projetISN/ISN/SFML-2.0/include" />
+					<Add directory="../SFML-2.0/include" />
 				</Compiler>
 				<Linker>
 					<Add library="sfml-graphics" />
 					<Add library="sfml-window" />
 					<Add library="sfml-system" />
-					<Add directory="/home/jean/Documents/projetISN/ISN/SFML-2.0/lib" />
+					<Add directory="../SFML-2.0/lib" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -31,14 +31,14 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add option="-DSFML_STATIC" />
-					<Add directory="/home/jean/Documents/projetISN/ISN/SFML-2.0/include" />
+					<Add directory="../SFML-2.0/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
 					<Add library="sfml-graphics" />
 					<Add library="sfml-window" />
 					<Add library="sfml-system" />
-					<Add directory="/home/jean/Documents/projetISN/ISN/SFML-2.0/lib" />
+					<Add directory="../SFML-2.0/lib" />
 				</Linker>
 			</Target>
 		</Build>

@@ -4,9 +4,10 @@ vaisseau::vaisseau()
 {
     m_mainShape = new sf::CircleShape(10.f);
     m_mainShape->setFillColor(sf::Color::Red);
-    m_mainShape->setPosition(sf::Vector2f(10, 10));
+    m_mainShape->setPosition(sf::Vector2f(200, 0));
 
-    m_shootFreq = sf::seconds(0.2f);
+    m_shootFreq = sf::seconds(0.1f);
+    m_shootTime = 0;
     m_nbr_msl = 0;
 
     life = 100;
@@ -59,22 +60,23 @@ float vaisseau::getAngle()
 }
 
 //mainFonctions
-void vaisseau::Shoot(sf::RenderWindow* p_window)
+void vaisseau::Shoot()
 {
-    if(sf::Mouse::isButtonPressed(sf::Mouse::Left) and sf::Mouse::getPosition(*p_window).x > 5 and sf::Mouse::getPosition(*p_window).x < 795 and sf::Mouse::getPosition(*p_window).y > 600 and sf::Mouse::getPosition(*p_window).y < 900
-            and m_clock.getElapsedTime() >= m_shootFreq)
+    if(sf::Mouse::isButtonPressed(sf::Mouse::Left) and !(getPosition().x < 5 or getPosition().x > 795 or getPosition().y < 600 or getPosition().y > 900)
+            and m_shootTime > 20)//frequence de tir = 20/60 = 0.3s
     {
-        m_msList.push_back(missile(sf::Vector2f(3, 10), sf::Color::Green, sf::Vector2f(sf::Mouse::getPosition(*p_window).x-1, sf::Mouse::getPosition(*p_window).y-1), sf::Vector2f(2.5,-5)));
+        m_msList.push_back(missile(sf::Vector2f(3, 10), sf::Color::Green, sf::Vector2f(getPosition().x+10, getPosition().y+10), sf::Vector2f(5,-10)));
         m_nbr_msl++;
 
-        m_msList.push_back(missile(sf::Vector2f(3, 10), sf::Color::Green, sf::Vector2f(sf::Mouse::getPosition(*p_window).x-1, sf::Mouse::getPosition(*p_window).y-1), sf::Vector2f(0,-5)));
+        m_msList.push_back(missile(sf::Vector2f(3, 10), sf::Color::Green, sf::Vector2f(getPosition().x+10, getPosition().y+10), sf::Vector2f(0,-10)));
         m_nbr_msl++;
 
-        m_msList.push_back(missile(sf::Vector2f(3, 10), sf::Color::Green, sf::Vector2f(sf::Mouse::getPosition(*p_window).x-1, sf::Mouse::getPosition(*p_window).y-1), sf::Vector2f(-2.5,-5)));
+        m_msList.push_back(missile(sf::Vector2f(3, 10), sf::Color::Green, sf::Vector2f(getPosition().x+10, getPosition().y+10), sf::Vector2f(-5,-10)));
         m_nbr_msl++;
 
-        m_clock.restart();
+        m_shootTime = 0;
     }
+    else{m_shootTime++;}
 }
 
 void vaisseau::Move()
@@ -82,21 +84,34 @@ void vaisseau::Move()
 
 }
 
-void vaisseau::onHit(float degat)
+void vaisseau::onHit(float degat, std::vector<vaisseau*>* entity_tab, int id)
 {
     life -= degat;
 }
 
-void vaisseau::Draw(sf::RenderWindow* p_window)
+void vaisseau::Draw(sf::RenderWindow* p_window, std::vector<vaisseau*>* entity_tab)
 {
-    for(int i = 0 ; i < (int) (m_msList.size()) ; i++)
+    Move();
+    Shoot();
+
+    for(std::vector<missile>::size_type i = 0 ; i < m_msList.size() ; i++)//Parcour de la liste des missiles TODO passer cette liste en pointeurs de missiles (héritage)
     {
-        if(m_msList[i].getPosition().x < 0 or m_msList[i].getPosition().x > 800 or m_msList[i].getPosition().y < 0 or m_msList[i].getPosition().y > 900){
-            m_msList.erase(m_msList.begin()+i);
-        }else{
-            m_msList[i].Move();
-            m_msList[i].Draw(p_window);
+        for(std::vector<vaisseau*>::size_type j = 0 ; j < entity_tab->size() ; j++)//Parcour de la liste des entitée via pointeur
+        {
+            sf::Vector2f entitiesPos = entity_tab->at(j)->getPosition();
+            if(entitiesPos == getPosition() or m_msList[i].getPosition().x < entitiesPos.x or m_msList[i].getPosition().x > entitiesPos.x+20 or m_msList[i].getPosition().y < entitiesPos.y or m_msList[i].getPosition().y > entitiesPos.y+20){
+            }//si missiles n'est pas sur une entitée on fait rien
+            else{
+                m_msList.erase(m_msList.begin()+i);//Misile explose
+                entity_tab->at(j)->onHit(0.f, entity_tab, j);//entitée est touchée
+            }
         }
+
+        m_msList[i].Move();
+        m_msList[i].Draw(p_window);
+
+        if(m_msList[i].getPosition().x < 0 or m_msList[i].getPosition().y < 0 or m_msList[i].getPosition().y > 900 or m_msList[i].getPosition().x > 800)
+            m_msList.erase(m_msList.begin()+i);//On degage les missiles hors fenetre!
     }
-    p_window->draw(*m_mainShape);
+    p_window->draw(*m_mainShape);//On se dessine soi même!
 }
