@@ -18,7 +18,7 @@ missile::missile(sf::Vector2f size, sf::Color color, sf::Vector2f position, sf::
 
 missile::~missile()
 {
-    if(m_mainShape->getPosition().x < 0 or m_mainShape->getPosition().x > 800 or m_mainShape->getPosition().y > 900 or m_mainShape->getPosition().y < 0)
+    if(m_mainShape->getPosition().x < -30 or m_mainShape->getPosition().x > 830 or m_mainShape->getPosition().y > 930 or m_mainShape->getPosition().y < -30)
         delete m_mainShape;
 }
 

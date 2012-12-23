@@ -25,3 +25,8 @@ void basic_shooting_ennemi::Shoot()
     }
     else{m_shootTime++;}
 }
+
+void basic_shooting_ennemi::Move()
+{
+    m_mainShape->move(sf::Vector2f(0, 2));
+}

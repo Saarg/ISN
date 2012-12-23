@@ -367,13 +367,13 @@
 	<SFML/Graphics.hpp>
 	"../player/vaisseau.h"
 
-1354909400 source:/home/jean/Documents/projetISN/ISN/Client/main.cpp
+1356215621 source:/home/jean/Documents/projetISN/ISN/Client/main.cpp
 	<SFML/Graphics.hpp>
 	<vector>
 	<sstream>
 	<time.h>
 	"include/player/vaisseau.h"
-	"include/badguys/basic_ennemi.h"
+	"include/badguys/basic_shooting_ennemi.h"
 
 1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Graphics.hpp
 	<SFML/Window.hpp>
@@ -709,7 +709,7 @@
 	<string>
 	<vector>
 
-1354740491 /home/jean/Documents/projetISN/ISN/Client/include/player/vaisseau.h
+1356213584 /home/jean/Documents/projetISN/ISN/Client/include/player/vaisseau.h
 	<SFML/Graphics.hpp>
 	<vector>
 	"../missile.h"
@@ -727,10 +727,10 @@
 1354792841 source:/home/jean/Documents/projetISN/ISN/Client/src/badguys/basic_ennemi.cpp
 	"../../include/badguys/basic_ennemi.h"
 
-1354359476 source:/home/jean/Documents/projetISN/ISN/Client/src/missile.cpp
+1356215520 source:/home/jean/Documents/projetISN/ISN/Client/src/missile.cpp
 	"../include/missile.h"
 
-1354792812 source:/home/jean/Documents/projetISN/ISN/Client/src/player/vaisseau.cpp
+1356215438 source:/home/jean/Documents/projetISN/ISN/Client/src/player/vaisseau.cpp
 	"../../include/player/vaisseau.h"
 
 1354985572 source:c:\users\utilisateur\documents\projetisn\isn\isn\client\src\badguys\basic_ennemi.cpp
@@ -1470,6 +1470,13 @@
 	"../../include/badguys/basic_shooting_ennemi.h"
 
 1355666017 c:\users\utilisateur\documents\projetisn\isn\client\include\badguys\basic_shooting_ennemi.h
+	<SFML/Graphics.hpp>
+	"../badguys/basic_ennemi.h"
+
+1356215954 source:/home/jean/Documents/projetISN/ISN/Client/src/badguys/basic_shooting_ennemi.cpp
+	"../../include/badguys/basic_shooting_ennemi.h"
+
+1356215928 /home/jean/Documents/projetISN/ISN/Client/include/badguys/basic_shooting_ennemi.h
 	<SFML/Graphics.hpp>
 	"../badguys/basic_ennemi.h"
 

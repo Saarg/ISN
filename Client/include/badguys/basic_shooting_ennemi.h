@@ -9,6 +9,7 @@ class basic_shooting_ennemi: public basic_ennemi
     public:
         basic_shooting_ennemi();
         virtual void Shoot();
+        virtual void Move();
 
 
 
