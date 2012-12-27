@@ -75,6 +75,7 @@ void missile::Move()
 
 void missile::Draw(sf::RenderWindow* p_window)
 {
+    Move();
     p_window->draw(*m_mainShape);
 }
 

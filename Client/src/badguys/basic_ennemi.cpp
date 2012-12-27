@@ -1,5 +1,10 @@
 #include "../../include/badguys/basic_ennemi.h"
 
+basic_ennemi::basic_ennemi(std::vector<missile*>* p_mslist, std::vector<vaisseau*>* p_entity_tab):vaisseau(p_mslist, p_entity_tab)
+{
+    m_life = 1;
+}
+
 void basic_ennemi::Shoot()
 {
 
@@ -12,6 +17,5 @@ void basic_ennemi::Move()
 
 void basic_ennemi::onHit(float degat, std::vector<vaisseau*>* entity_tab, int id)
 {
-    delete entity_tab->at(id);
-    entity_tab->erase(entity_tab->begin()+id);
+    m_life = m_life-degat;
 }

@@ -1,22 +1,23 @@
 #include <SFML/Graphics.hpp>
+#include <map>
 #include <vector>
 #include <sstream>
 #include <time.h>
 
-#include "include/player/vaisseau.h"
+#include "include/vaisseau.h"
 #include "include/badguys/basic_shooting_ennemi.h"
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(800, 900), "SFML works!");
     window.setFramerateLimit(60);
-    int player = 0;//Le joueur est dans la ligne 0
     std::vector<vaisseau*> entity_tab;
+    std::vector<missile*> missile_tab;
 
-    entity_tab.push_back(new vaisseau());
-    entity_tab.push_back(new basic_shooting_ennemi());
+    entity_tab.push_back(new vaisseau(&missile_tab, &entity_tab));
+    entity_tab.push_back(new basic_shooting_ennemi(&missile_tab, &entity_tab));
 
-    srand(547);
+    srand(404);
     int Random;
 
     while (window.isOpen())
@@ -24,16 +25,15 @@ int main()
         /* gestion aléatoire des gros pas bô */
         Random = rand()%1001;//nombre entre 0 et 1000
         if(Random < 10){//1% de chance de spawn un pas joli
-            entity_tab.push_back(new basic_ennemi());
+            entity_tab.push_back(new basic_ennemi(&missile_tab, &entity_tab));
             entity_tab[entity_tab.size()-1]->setPosition(rand()%781, 0);//On oubli pas la position random
 
         }
         if(Random < 50 and Random > 48){//0.2% de chance d'un escadron de pas bô
-            entity_tab.push_back(new basic_shooting_ennemi());
+            entity_tab.push_back(new basic_shooting_ennemi(&missile_tab, &entity_tab));
             entity_tab[entity_tab.size()-1]->setPosition(rand()%781, 0);//On oubli pas la position random
 
         }
-        entity_tab[entity_tab.size()-1]->Shoot();
 
         sf::Event event;
         while (window.pollEvent(event))
@@ -42,15 +42,40 @@ int main()
                 window.close();
         }
 
-        entity_tab[player]->setPosition(sf::Mouse::getPosition(window).x-10, sf::Mouse::getPosition(window).y-10);
+        if(sf::Mouse::getPosition(window).x-10 > 0 and sf::Mouse::getPosition(window).y-10 > 0 and sf::Mouse::getPosition(window).y < 900 and sf::Mouse::getPosition(window).x < 800)
+            entity_tab[0]->setPosition(sf::Mouse::getPosition(window).x-10, sf::Mouse::getPosition(window).y-10);
 
         window.clear();
-        for(std::vector<vaisseau*>::size_type i = 0 ; i < entity_tab.size() ; i++){//c'est parti on affiche tout le monde!!!
-            entity_tab[i]->Draw(&window, &entity_tab);
 
-            if(entity_tab[i]->getPosition().x < 0 or entity_tab[i]->getPosition().x > 800 or entity_tab[i]->getPosition().y > 900 or entity_tab[i]->getPosition().y < 0)
-                entity_tab.erase(entity_tab.begin()+i);
+        for(std::vector<missile*>::size_type i = 0 ; i < missile_tab.size() ; i++)
+        {
+            if(missile_tab[i]->getPosition().x < 0 or missile_tab[i]->getPosition().y < 0 or missile_tab[i]->getPosition().y > 900 or missile_tab[i]->getPosition().x > 800)
+                missile_tab.erase(missile_tab.begin()+i);
+            else
+            {
+                missile_tab[i]->Draw(&window);
+                for(std::vector<vaisseau*>::size_type j = 0 ; j < entity_tab.size() ; j++)
+                {
+                    sf::Vector2f entityPos = entity_tab[j]->getPosition();
 
+                    if(entityPos.x < 0 or entityPos.y < 0 or entityPos.y > 900 or entityPos.x > 800)
+                    {
+                        entity_tab.erase(entity_tab.begin()+j);
+                    }
+                    else if(
+                        missile_tab[i]->getPosition().x > entityPos.x and missile_tab[i]->getPosition().x < entityPos.x+20 and
+                        missile_tab[i]->getPosition().y > entityPos.y and missile_tab[i]->getPosition().y < entityPos.y+20)
+                    {
+                        missile_tab.erase(missile_tab.begin()+i);
+                        entity_tab[j]->onHit(1.f);
+                    }
+
+                }
+            }
+        }
+        for(std::vector<vaisseau*>::size_type i = 0 ; i < entity_tab.size() ; i++)
+        {
+            entity_tab.at(i)->Draw(&window);
         }
         window.display();
     }

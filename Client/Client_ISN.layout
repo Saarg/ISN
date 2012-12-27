@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="include/badguys/basic_ennemi.h" open="1" top="0" tabpos="7">
-		<Cursor position="203" topLine="0" />
+	<File name="include/badguys/basic_ennemi.h" open="1" top="0" tabpos="5">
+		<Cursor position="367" topLine="0" />
 	</File>
-	<File name="include/badguys/basic_shooting_ennemi.h" open="1" top="0" tabpos="2">
+	<File name="include/badguys/basic_shooting_ennemi.h" open="0" top="0" tabpos="2">
 		<Cursor position="304" topLine="0" />
 	</File>
 	<File name="include/missile.h" open="0" top="0" tabpos="2">
 		<Cursor position="499" topLine="0" />
 	</File>
-	<File name="include/player/vaisseau.h" open="0" top="0" tabpos="4">
-		<Cursor position="606" topLine="0" />
+	<File name="include/player/vaisseau.h" open="1" top="0" tabpos="2">
+		<Cursor position="769" topLine="0" />
 	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="870" topLine="10" />
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="1862" topLine="8" />
 	</File>
-	<File name="src/badguys/basic_ennemi.cpp" open="1" top="0" tabpos="6">
-		<Cursor position="83" topLine="0" />
+	<File name="src/badguys/basic_ennemi.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="156" topLine="0" />
 	</File>
-	<File name="src/badguys/basic_shooting_ennemi.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="1020" topLine="0" />
+	<File name="src/badguys/basic_shooting_ennemi.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="894" topLine="0" />
 	</File>
-	<File name="src/missile.cpp" open="1" top="0" tabpos="5">
-		<Cursor position="692" topLine="0" />
+	<File name="src/missile.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="692" topLine="6" />
 	</File>
-	<File name="src/player/vaisseau.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="3289" topLine="67" />
+	<File name="src/player/vaisseau.cpp" open="1" top="1" tabpos="3">
+		<Cursor position="2286" topLine="85" />
 	</File>
 </CodeBlocks_layout_file>
