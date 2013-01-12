@@ -1,31 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="include/badguys/basic_ennemi.h" open="1" top="0" tabpos="5">
-		<Cursor position="367" topLine="0" />
+	<File name="include/badguys/basic_ennemi.h" open="0" top="0" tabpos="6">
+		<Cursor position="310" topLine="0" />
 	</File>
-	<File name="include/badguys/basic_shooting_ennemi.h" open="0" top="0" tabpos="2">
-		<Cursor position="304" topLine="0" />
+	<File name="include/badguys/basic_shooting_ennemi.h" open="0" top="0" tabpos="7">
+		<Cursor position="132" topLine="0" />
 	</File>
-	<File name="include/missile.h" open="0" top="0" tabpos="2">
-		<Cursor position="499" topLine="0" />
+	<File name="include/missile.h" open="0" top="0" tabpos="6">
+		<Cursor position="388" topLine="0" />
 	</File>
-	<File name="include/player/vaisseau.h" open="1" top="0" tabpos="2">
-		<Cursor position="769" topLine="0" />
+	<File name="include/modules/modules.h" open="0" top="0" tabpos="8">
+		<Cursor position="369" topLine="0" />
+	</File>
+	<File name="include/vaisseau.h" open="0" top="0" tabpos="2">
+		<Cursor position="450" topLine="0" />
 	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="1862" topLine="8" />
+		<Cursor position="1254" topLine="9" />
 	</File>
-	<File name="src/badguys/basic_ennemi.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="156" topLine="0" />
+	<File name="src/badguys/basic_ennemi.cpp" open="0" top="0" tabpos="7">
+		<Cursor position="308" topLine="0" />
 	</File>
-	<File name="src/badguys/basic_shooting_ennemi.cpp" open="1" top="0" tabpos="6">
-		<Cursor position="894" topLine="0" />
+	<File name="src/badguys/basic_shooting_ennemi.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="797" topLine="0" />
 	</File>
-	<File name="src/missile.cpp" open="0" top="0" tabpos="5">
-		<Cursor position="692" topLine="6" />
+	<File name="src/missile.cpp" open="0" top="0" tabpos="9">
+		<Cursor position="407" topLine="0" />
 	</File>
-	<File name="src/player/vaisseau.cpp" open="1" top="1" tabpos="3">
-		<Cursor position="2286" topLine="85" />
+	<File name="src/modules/modules.cpp" open="1" top="1" tabpos="2">
+		<Cursor position="423" topLine="0" />
+	</File>
+	<File name="src/player/player.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="426" topLine="0" />
+	</File>
+	<File name="src/vaisseau.cpp" open="0" top="0" tabpos="3">
+		<Cursor position="1908" topLine="40" />
 	</File>
 </CodeBlocks_layout_file>

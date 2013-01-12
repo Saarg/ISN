@@ -23,6 +23,8 @@ class vaisseau
         //getShapeOptions
         sf::Color getColor();
 
+        bool isAlive();
+
         //mainFonctions
         virtual void Shoot();
         virtual void Move();

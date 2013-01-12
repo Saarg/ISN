@@ -367,14 +367,15 @@
 	<SFML/Graphics.hpp>
 	"../player/vaisseau.h"
 
-1356638237 source:/home/jean/Documents/projetISN/ISN/Client/main.cpp
+1358013662 source:/home/jean/Documents/projetISN/ISN/Client/main.cpp
 	<SFML/Graphics.hpp>
 	<map>
 	<vector>
 	<sstream>
 	<time.h>
-	"include/vaisseau.h"
+	"include/player/player.h"
 	"include/badguys/basic_shooting_ennemi.h"
+	"include/modules/modules.h"
 
 1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Graphics.hpp
 	<SFML/Window.hpp>
@@ -721,14 +722,14 @@
 	<stdio.h>
 	<iostream>
 
-1356632285 /home/jean/Documents/projetISN/ISN/Client/include/badguys/basic_ennemi.h
+1357045387 /home/jean/Documents/projetISN/ISN/Client/include/badguys/basic_ennemi.h
 	<SFML/Graphics.hpp>
 	"../vaisseau.h"
 
-1356632317 source:/home/jean/Documents/projetISN/ISN/Client/src/badguys/basic_ennemi.cpp
+1357045387 source:/home/jean/Documents/projetISN/ISN/Client/src/badguys/basic_ennemi.cpp
 	"../../include/badguys/basic_ennemi.h"
 
-1356633206 source:/home/jean/Documents/projetISN/ISN/Client/src/missile.cpp
+1356821955 source:/home/jean/Documents/projetISN/ISN/Client/src/missile.cpp
 	"../include/missile.h"
 
 1356629593 source:/home/jean/Documents/projetISN/ISN/Client/src/player/vaisseau.cpp
@@ -1481,10 +1482,22 @@
 	<SFML/Graphics.hpp>
 	"../badguys/basic_ennemi.h"
 
-1356637933 source:/home/jean/Documents/projetISN/ISN/Client/src/vaisseau.cpp
+1358012012 source:/home/jean/Documents/projetISN/ISN/Client/src/vaisseau.cpp
 	"../include/vaisseau.h"
 
-1356632317 /home/jean/Documents/projetISN/ISN/Client/include/vaisseau.h
+1358012012 /home/jean/Documents/projetISN/ISN/Client/include/vaisseau.h
 	<vector>
 	"missile.h"
+
+1356883312 source:/home/jean/Documents/projetISN/ISN/Client/src/player/player.cpp
+	"../../include/player/player.h"
+
+1356822514 /home/jean/Documents/projetISN/ISN/Client/include/player/player.h
+	"../vaisseau.h"
+
+1358013626 source:/home/jean/Documents/projetISN/ISN/Client/src/modules/modules.cpp
+	"../../include/modules/modules.h"
+
+1358012727 /home/jean/Documents/projetISN/ISN/Client/include/modules/modules.h
+	"../vaisseau.h"
 

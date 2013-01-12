@@ -11,7 +11,6 @@ class basic_ennemi: public vaisseau
 
         virtual void Shoot();
         virtual void Move();
-        virtual void onHit(float degat, std::vector<vaisseau*>* entity_tab, int id);
     protected:
     private:
 

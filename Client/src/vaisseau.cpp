@@ -10,7 +10,7 @@ vaisseau::vaisseau(std::vector<missile*>* p_mslist, std::vector<vaisseau*>* p_en
     m_mainShape->setPosition(sf::Vector2f(200, 0));
 
     m_clock.restart();
-    m_shootFreq = sf::seconds(0.3f);
+    m_shootFreq = sf::seconds(0.5f);
 
     m_speed = sf::Vector2f(0, 0);
     m_life = 100;
@@ -52,16 +52,20 @@ sf::Color vaisseau::getColor()
 
 }
 
+bool vaisseau::isAlive()
+{
+    if(m_life <= 0)
+        return false;
+    else
+        return true;
+}
+
 void vaisseau::Shoot()
 {
     if(sf::Mouse::isButtonPressed(sf::Mouse::Left) and !(getPosition().x < 5 or getPosition().x > 795 or getPosition().y < 600 or getPosition().y > 900)
             and m_clock.getElapsedTime() > m_shootFreq)
     {
-        m_msList->push_back(new missile(sf::Vector2f(3, 10), sf::Color::Green, sf::Vector2f(getPosition().x+10, getPosition().y), sf::Vector2f(5,-10)));
-
         m_msList->push_back(new missile(sf::Vector2f(3, 10), sf::Color::Green, sf::Vector2f(getPosition().x+10, getPosition().y), sf::Vector2f(0,-10)));
-
-        m_msList->push_back(new missile(sf::Vector2f(3, 10), sf::Color::Green, sf::Vector2f(getPosition().x+10, getPosition().y), sf::Vector2f(-5,-10)));
 
         m_clock.restart();
     }
@@ -75,6 +79,14 @@ void vaisseau::Move()
 void vaisseau::onHit(float degat)
 {
     m_life -= degat;
+}
+
+void vaisseau::Draw(sf::RenderWindow* p_window)
+{
+    Move();
+    Shoot();
+    p_window->draw(*m_mainShape);
+
     if(m_life <= 0)
     {
         for(std::vector<vaisseau*>::size_type j = 0 ; j < m_entity_tab->size() ; j++)
@@ -83,11 +95,4 @@ void vaisseau::onHit(float degat)
                 m_entity_tab->erase(m_entity_tab->begin()+j);
         }
     }
-}
-
-void vaisseau::Draw(sf::RenderWindow* p_window)
-{
-    Move();
-    Shoot();
-    p_window->draw(*m_mainShape);
 }

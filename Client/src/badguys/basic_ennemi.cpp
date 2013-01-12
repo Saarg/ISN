@@ -14,8 +14,3 @@ void basic_ennemi::Move()
 {
     m_mainShape->move(sf::Vector2f(0, 3));
 }
-
-void basic_ennemi::onHit(float degat, std::vector<vaisseau*>* entity_tab, int id)
-{
-    m_life = m_life-degat;
-}

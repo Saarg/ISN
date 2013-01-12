@@ -4,8 +4,9 @@
 #include <sstream>
 #include <time.h>
 
-#include "include/vaisseau.h"
+#include "include/player/player.h"
 #include "include/badguys/basic_shooting_ennemi.h"
+#include "include/modules/modules.h"
 
 int main()
 {
@@ -14,7 +15,7 @@ int main()
     std::vector<vaisseau*> entity_tab;
     std::vector<missile*> missile_tab;
 
-    entity_tab.push_back(new vaisseau(&missile_tab, &entity_tab));
+    entity_tab.push_back(new player(&missile_tab, &entity_tab));
     entity_tab.push_back(new basic_shooting_ennemi(&missile_tab, &entity_tab));
 
     srand(404);
@@ -27,12 +28,15 @@ int main()
         if(Random < 10){//1% de chance de spawn un pas joli
             entity_tab.push_back(new basic_ennemi(&missile_tab, &entity_tab));
             entity_tab[entity_tab.size()-1]->setPosition(rand()%781, 0);//On oubli pas la position random
-
         }
-        if(Random < 50 and Random > 48){//0.2% de chance d'un escadron de pas bô
+        else if(Random < 50 and Random > 48){//0.2% de chance d'un escadron de pas bô
             entity_tab.push_back(new basic_shooting_ennemi(&missile_tab, &entity_tab));
             entity_tab[entity_tab.size()-1]->setPosition(rand()%781, 0);//On oubli pas la position random
-
+        }
+        else if(Random < 55 and Random > 50){//0.2% de chance d'un escadron de pas bô
+            entity_tab.push_back(new basic_ennemi(&missile_tab, &entity_tab));
+            entity_tab[entity_tab.size()-1]->setPosition(rand()%781, 0);//On oubli pas la position random
+            entity_tab.push_back(new modules(&missile_tab, &entity_tab, entity_tab[entity_tab.size()-1], sf::Vector2f(0, 20), sf::Vector2f(3, -10)));
         }
 
         sf::Event event;
