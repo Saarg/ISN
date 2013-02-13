@@ -16,8 +16,8 @@
 	<File name="include/vaisseau.h" open="0" top="0" tabpos="2">
 		<Cursor position="450" topLine="0" />
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="1254" topLine="9" />
+	<File name="main.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="62" topLine="39" />
 	</File>
 	<File name="src/badguys/basic_ennemi.cpp" open="0" top="0" tabpos="7">
 		<Cursor position="308" topLine="0" />
@@ -28,13 +28,13 @@
 	<File name="src/missile.cpp" open="0" top="0" tabpos="9">
 		<Cursor position="407" topLine="0" />
 	</File>
-	<File name="src/modules/modules.cpp" open="1" top="1" tabpos="2">
-		<Cursor position="423" topLine="0" />
+	<File name="src/modules/modules.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="791" topLine="0" />
 	</File>
 	<File name="src/player/player.cpp" open="0" top="0" tabpos="4">
 		<Cursor position="426" topLine="0" />
 	</File>
 	<File name="src/vaisseau.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="1908" topLine="40" />
+		<Cursor position="230" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>

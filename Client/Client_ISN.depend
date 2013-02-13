@@ -367,15 +367,8 @@
 	<SFML/Graphics.hpp>
 	"../player/vaisseau.h"
 
-1358013662 source:/home/jean/Documents/projetISN/ISN/Client/main.cpp
-	<SFML/Graphics.hpp>
-	<map>
-	<vector>
-	<sstream>
-	<time.h>
-	"include/player/player.h"
-	"include/badguys/basic_shooting_ennemi.h"
-	"include/modules/modules.h"
+1360772299 source:/home/jean/Documents/projetISN/ISN/Client/main.cpp
+	"solo.h"
 
 1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Graphics.hpp
 	<SFML/Window.hpp>
@@ -1495,9 +1488,162 @@
 1356822514 /home/jean/Documents/projetISN/ISN/Client/include/player/player.h
 	"../vaisseau.h"
 
-1358013626 source:/home/jean/Documents/projetISN/ISN/Client/src/modules/modules.cpp
+1358014058 source:/home/jean/Documents/projetISN/ISN/Client/src/modules/modules.cpp
 	"../../include/modules/modules.h"
 
 1358012727 /home/jean/Documents/projetISN/ISN/Client/include/modules/modules.h
 	"../vaisseau.h"
+
+1360771797 source:/home/jean/Documents/projetISN/ISN/Client/multiplayer.cpp
+	<SFML/Audio.hpp>
+	<SFML/Graphics.hpp>
+	<SFML/Network.hpp>
+	<iostream>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Audio.hpp
+	<SFML/System.hpp>
+	<SFML/Audio/Listener.hpp>
+	<SFML/Audio/Music.hpp>
+	<SFML/Audio/Sound.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundBufferRecorder.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<SFML/Audio/SoundStream.hpp>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Audio/Listener.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Vector3.hpp>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Audio/Export.hpp
+	<SFML/Config.hpp>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Audio/Music.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundStream.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Audio/SoundStream.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<cstdlib>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Audio/SoundSource.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Vector3.hpp>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Audio/Sound.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Time.hpp>
+	<cstdlib>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Audio/SoundBuffer.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+	<set>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Audio/SoundBufferRecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<vector>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Audio/SoundRecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Thread.hpp>
+	<vector>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Network.hpp
+	<SFML/System.hpp>
+	<SFML/Network/Ftp.hpp>
+	<SFML/Network/Http.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<SFML/Network/Packet.hpp>
+	<SFML/Network/SocketSelector.hpp>
+	<SFML/Network/TcpListener.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/Network/UdpSocket.hpp>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Network/Ftp.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Network/Export.hpp
+	<SFML/Config.hpp>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Network/TcpSocket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/System/Time.hpp>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Network/Socket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/SocketHandle.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<vector>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Network/SocketHandle.hpp
+	<SFML/Config.hpp>
+	<basetsd.h>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Network/Http.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<map>
+	<string>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Network/IpAddress.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/System/Time.hpp>
+	<istream>
+	<ostream>
+	<string>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Network/Packet.hpp
+	<SFML/Network/Export.hpp>
+	<string>
+	<vector>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Network/SocketSelector.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Network/TcpListener.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+
+1334414791 /home/jean/Documents/projetISN/ISN/SFML-2.0/include/SFML/Network/UdpSocket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+	<vector>
+
+1360772291 source:/home/jean/Documents/projetISN/ISN/Client/solo.cpp
+	"solo.h"
+
+1360772291 /home/jean/Documents/projetISN/ISN/Client/solo.cpp
+	"solo.h"
+
+1360772284 /home/jean/Documents/projetISN/ISN/Client/solo.h
+	<SFML/Graphics.hpp>
+	<map>
+	<vector>
+	<sstream>
+	<time.h>
+	"include/player/player.h"
+	"include/badguys/basic_shooting_ennemi.h"
+	"include/modules/modules.h"
 
