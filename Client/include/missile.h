@@ -34,6 +34,7 @@ class missile
     private:
         sf::Vector2f m_speed;
         float m_angle;
+        sf::Clock m_clock;
 
         sf::Shape* m_mainShape;
 };

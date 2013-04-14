@@ -14,6 +14,7 @@ class player: public vaisseau
         virtual void onHit(float degat);
     protected:
     private:
+
 };
 
 #endif // PLAYER_H

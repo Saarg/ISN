@@ -70,7 +70,8 @@ float missile::getAngle()
 //mainFonctions
 void missile::Move()
 {
-    m_mainShape->move(m_speed);
+    sf::Time time = m_clock.restart();
+    m_mainShape->move(m_speed*(time.asSeconds()*60));
 }
 
 void missile::Draw(sf::RenderWindow* p_window)

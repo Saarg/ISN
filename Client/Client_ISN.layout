@@ -1,23 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Debug" />
+	<ActiveTarget name="Release" />
 	<File name="include/badguys/basic_ennemi.h" open="0" top="0" tabpos="6">
 		<Cursor position="310" topLine="0" />
 	</File>
 	<File name="include/badguys/basic_shooting_ennemi.h" open="0" top="0" tabpos="7">
 		<Cursor position="132" topLine="0" />
 	</File>
-	<File name="include/missile.h" open="0" top="0" tabpos="6">
-		<Cursor position="388" topLine="0" />
+	<File name="include/bonus.h" open="1" top="0" tabpos="4">
+		<Cursor position="428" topLine="0" />
+	</File>
+	<File name="include/missile.h" open="1" top="0" tabpos="11">
+		<Cursor position="912" topLine="0" />
 	</File>
 	<File name="include/modules/modules.h" open="0" top="0" tabpos="8">
 		<Cursor position="369" topLine="0" />
 	</File>
-	<File name="include/vaisseau.h" open="0" top="0" tabpos="2">
-		<Cursor position="450" topLine="0" />
+	<File name="include/player/player.h" open="1" top="0" tabpos="6">
+		<Cursor position="357" topLine="0" />
 	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="62" topLine="39" />
+	<File name="include/vaisseau.h" open="1" top="0" tabpos="2">
+		<Cursor position="612" topLine="0" />
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="519" topLine="36" />
+	</File>
+	<File name="multiplayer.cpp" open="1" top="0" tabpos="9">
+		<Cursor position="301" topLine="0" />
+	</File>
+	<File name="multiplayer.h" open="0" top="0" tabpos="3">
+		<Cursor position="217" topLine="0" />
+	</File>
+	<File name="server.h" open="0" top="0" tabpos="4">
+		<Cursor position="225" topLine="0" />
+	</File>
+	<File name="solo.cpp" open="1" top="0" tabpos="8">
+		<Cursor position="6595" topLine="120" />
+	</File>
+	<File name="solo.h" open="0" top="0" tabpos="4">
+		<Cursor position="254" topLine="0" />
 	</File>
 	<File name="src/badguys/basic_ennemi.cpp" open="0" top="0" tabpos="7">
 		<Cursor position="308" topLine="0" />
@@ -25,16 +46,19 @@
 	<File name="src/badguys/basic_shooting_ennemi.cpp" open="0" top="0" tabpos="5">
 		<Cursor position="797" topLine="0" />
 	</File>
-	<File name="src/missile.cpp" open="0" top="0" tabpos="9">
-		<Cursor position="407" topLine="0" />
+	<File name="src/bonus.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="860" topLine="0" />
+	</File>
+	<File name="src/missile.cpp" open="1" top="0" tabpos="10">
+		<Cursor position="1538" topLine="37" />
 	</File>
 	<File name="src/modules/modules.cpp" open="0" top="0" tabpos="2">
 		<Cursor position="791" topLine="0" />
 	</File>
-	<File name="src/player/player.cpp" open="0" top="0" tabpos="4">
-		<Cursor position="426" topLine="0" />
+	<File name="src/player/player.cpp" open="1" top="1" tabpos="7">
+		<Cursor position="1669" topLine="11" />
 	</File>
-	<File name="src/vaisseau.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="230" topLine="0" />
+	<File name="src/vaisseau.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="1966" topLine="37" />
 	</File>
 </CodeBlocks_layout_file>

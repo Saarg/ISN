@@ -24,11 +24,13 @@ class vaisseau
         sf::Color getColor();
 
         bool isAlive();
+        void clockSpeed(float clockchange);
 
         //mainFonctions
         virtual void Shoot();
         virtual void Move();
         virtual void onHit(float degat);
+        void changeScore(sf::Color c1, sf::Color c2, sf::Vector2f size);//R=1 G=2 B=3
 
         void Draw(sf::RenderWindow* p_window);
 
@@ -40,6 +42,8 @@ class vaisseau
 
         sf::Vector2f m_speed;
         float m_life;
+        int m_bonus_score;
+        int m_scoreR, m_scoreG, m_scoreB;
 
         sf::Time m_shootFreq;
         sf::Clock m_clock;

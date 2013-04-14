@@ -1,22 +1,35 @@
 #include "solo.h"
+#include "include/bonus.h"
+#include <SFML/Graphics.hpp>
 
-int solo()
+int solo(sf::RenderWindow* p_window)
 {
-    sf::RenderWindow window(sf::VideoMode(800, 900), "SFML works!");
-    window.setFramerateLimit(60);
+    p_window->setSize(sf::Vector2u(800, 900));
+    p_window->setFramerateLimit(60);
+
+    sf::Font font;
     std::vector<vaisseau*> entity_tab;
     std::vector<missile*> missile_tab;
+    std::vector<Bonus*> bonus_tab;
 
     entity_tab.push_back(new player(&missile_tab, &entity_tab));
     entity_tab.push_back(new basic_shooting_ennemi(&missile_tab, &entity_tab));
 
     srand(404);
     int Random;
+    float spawnBonus(0);
+    //int bonusScore(0);
+    //int bonValue;
+    bool continuer = true;
+    bool pause = false;
 
-    while (window.isOpen())
+
+    while (p_window->isOpen() && continuer)
     {
         /* gestion aléatoire des gros pas bô */
         Random = rand()%1001;//nombre entre 0 et 1000
+
+
         if(Random < 10){//1% de chance de spawn un pas joli
             entity_tab.push_back(new basic_ennemi(&missile_tab, &entity_tab));
             entity_tab[entity_tab.size()-1]->setPosition(rand()%781, 0);//On oubli pas la position random
@@ -32,16 +45,47 @@ int solo()
         }
 
         sf::Event event;
-        while (window.pollEvent(event))
+        while (p_window->pollEvent(event))
+
         {
-            if (event.type == sf::Event::Closed or sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-                window.close();
+            //int RandomBonus;
+            //RandomBonus = rand()%1001;
+            if (event.type == sf::Event::Closed)
+                p_window->close();
+            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+                pause = true;
+
+                while(pause){
+                    sf::Text textpause("pause", font, 50);
+                    sf::Text textoui("oui", font, 50);
+                    sf::Text textnon("non", font, 50);
+                    sf::Text pressEchap("press Echap", font, 50);
+                    sf::Text pressReturn("press Return", font, 50);
+
+                    textpause.setPosition(400-(textpause.getGlobalBounds().width)/2, 100);
+                    textoui.setPosition(350, 100);
+                    textnon.setPosition(50, 200);
+                    pressEchap.setPosition(350, 300);
+                    pressReturn.setPosition(50, 400);
+
+                    p_window->display();
+
+                    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+                    {
+                         continuer=false;
+                         pause=false;
+                    }
+
+                    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+                        pause=false;
+                }
+
         }
 
-        if(sf::Mouse::getPosition(window).x-10 > 0 and sf::Mouse::getPosition(window).y-10 > 0 and sf::Mouse::getPosition(window).y < 900 and sf::Mouse::getPosition(window).x < 800)
-            entity_tab[0]->setPosition(sf::Mouse::getPosition(window).x-10, sf::Mouse::getPosition(window).y-10);
+        if(sf::Mouse::getPosition(*p_window).x-10 > 0 and sf::Mouse::getPosition(*p_window).y-10 > 0 and sf::Mouse::getPosition(*p_window).y < 900 and sf::Mouse::getPosition(*p_window).x < 800)
+            entity_tab[0]->setPosition(sf::Mouse::getPosition(*p_window).x-10, sf::Mouse::getPosition(*p_window).y-10);
 
-        window.clear();
+        p_window->clear();
 
         for(std::vector<missile*>::size_type i = 0 ; i < missile_tab.size() ; i++)
         {
@@ -49,7 +93,7 @@ int solo()
                 missile_tab.erase(missile_tab.begin()+i);
             else
             {
-                missile_tab[i]->Draw(&window);
+                missile_tab[i]->Draw(p_window);
                 for(std::vector<vaisseau*>::size_type j = 0 ; j < entity_tab.size() ; j++)
                 {
                     sf::Vector2f entityPos = entity_tab[j]->getPosition();
@@ -64,16 +108,66 @@ int solo()
                     {
                         missile_tab.erase(missile_tab.begin()+i);
                         entity_tab[j]->onHit(1.f);
+
+
+                        if(entity_tab[j]->isAlive()==false)
+                        {
+                           spawnBonus=spawnBonus+0.8;
+
+                        }
+                        if(spawnBonus>2 && spawnBonus!= 2.2)
+                        {
+                             bonus_tab.push_back(new Bonus(entity_tab[j]->getPosition(),sf::Color::Yellow,sf::Color::Green, 5));
+                             spawnBonus = spawnBonus-2;
+
+                        }
+                        else if(spawnBonus==2)
+                        {
+                             bonus_tab.push_back(new Bonus(entity_tab[j]->getPosition(),sf::Color::Cyan, sf::Color::Blue, 10));
+                             spawnBonus = spawnBonus-2;
+
+                        }
+
+
                     }
+
+
 
                 }
             }
         }
+
+        sf::Vector2f playerPos = entity_tab[0]->getPosition();
+
+        for(std::vector<Bonus*>::size_type a = 0 ; a < bonus_tab.size() ; a++)
+        {
+            sf::Vector2f bonusPos = bonus_tab[a]->getPosition();
+
+            if(bonusPos.x<0 or bonusPos.x>793 or bonusPos.y<0 or bonusPos.y > 885)
+            {
+                bonus_tab.erase(bonus_tab.begin()+a);
+            }
+            else if(!(bonusPos.x<playerPos.x or bonusPos.x>playerPos.x+20 or bonusPos.y<playerPos.y or bonusPos.y>playerPos.y+20)
+                or !(bonusPos.x+10<playerPos.x or bonusPos.x+10>playerPos.x+20 or bonusPos.y<playerPos.y or bonusPos.y>playerPos.y+20)
+                or !(bonusPos.x<playerPos.x or bonusPos.x>playerPos.x+20 or bonusPos.y+10<playerPos.y or bonusPos.y+10>playerPos.y+20)
+                or !(bonusPos.x+10<playerPos.x or bonusPos.x+10>playerPos.x+20 or bonusPos.y+10<playerPos.y or bonusPos.y+10>playerPos.y+20))
+            {
+                bonus_tab.erase(bonus_tab.begin()+a);
+                entity_tab[0]->changeScore(bonus_tab[0]->getFillColor(), bonus_tab[0]->getOutlineColor(), bonus_tab[0]->getSize());
+            }
+
+        }
+
         for(std::vector<vaisseau*>::size_type i = 0 ; i < entity_tab.size() ; i++)
         {
-            entity_tab.at(i)->Draw(&window);
+            entity_tab.at(i)->Draw(p_window);
         }
-        window.display();
+        for(std::vector<Bonus*>::size_type u = 0 ; u < bonus_tab.size() ; u++)
+        {
+            bonus_tab.at(u)->Draw(p_window);
+        }
+
+        p_window->display();
     }
 
     return 0;

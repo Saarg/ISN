@@ -10,7 +10,8 @@
 #include "include/player/player.h"
 #include "include/badguys/basic_shooting_ennemi.h"
 #include "include/modules/modules.h"
+#include "include/bonus.h"
 
-int solo();
+int solo(sf::RenderWindow* p_window);
 
 #endif // SOLO_H
