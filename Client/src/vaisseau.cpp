@@ -74,7 +74,8 @@ void vaisseau::Shoot()
 
 void vaisseau::Move()
 {
-    m_mainShape->move(m_speed);
+    sf::Time time = m_clock2.restart();
+    m_mainShape->move(m_speed*(time.asSeconds()*60));
 }
 
 void vaisseau::onHit(float degat)

@@ -10,7 +10,6 @@ class basic_ennemi: public vaisseau
         basic_ennemi(std::vector<missile*>* p_mslist, std::vector<vaisseau*>* p_entity_tab);
 
         virtual void Shoot();
-        virtual void Move();
     protected:
     private:
 

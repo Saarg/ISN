@@ -25,8 +25,8 @@
 	<File name="main.cpp" open="1" top="0" tabpos="1">
 		<Cursor position="519" topLine="36" />
 	</File>
-	<File name="multiplayer.cpp" open="1" top="0" tabpos="9">
-		<Cursor position="301" topLine="0" />
+	<File name="multiplayer.cpp" open="1" top="1" tabpos="9">
+		<Cursor position="505" topLine="3" />
 	</File>
 	<File name="multiplayer.h" open="0" top="0" tabpos="3">
 		<Cursor position="217" topLine="0" />
@@ -55,7 +55,7 @@
 	<File name="src/modules/modules.cpp" open="0" top="0" tabpos="2">
 		<Cursor position="791" topLine="0" />
 	</File>
-	<File name="src/player/player.cpp" open="1" top="1" tabpos="7">
+	<File name="src/player/player.cpp" open="1" top="0" tabpos="7">
 		<Cursor position="1669" topLine="11" />
 	</File>
 	<File name="src/vaisseau.cpp" open="1" top="0" tabpos="3">

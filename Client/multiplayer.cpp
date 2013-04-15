@@ -4,7 +4,6 @@ int multiplayer(sf::RenderWindow* p_window)
 {
     sf::TcpSocket socket;
     server server;
-    sf::Thread thread(&server::Run, &server);
 
     // Create a graphical text to display
     sf::Font font;

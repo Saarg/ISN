@@ -46,7 +46,7 @@ class vaisseau
         int m_scoreR, m_scoreG, m_scoreB;
 
         sf::Time m_shootFreq;
-        sf::Clock m_clock;
+        sf::Clock m_clock, m_clock2;
     private:
 };
 

@@ -5,6 +5,7 @@ basic_shooting_ennemi::basic_shooting_ennemi(std::vector<missile*>* p_mslist, st
      m_shootFreq = sf::seconds(0.9f);
      //m_mainShape->setFillColor(sf::Color::Red);
      m_mainShape = new sf::CircleShape(10.f);
+     m_speed = sf::Vector2f(0, 2);
 }
 
 void basic_shooting_ennemi::Shoot()
@@ -17,9 +18,4 @@ void basic_shooting_ennemi::Shoot()
 
         m_clock.restart();
     }
-}
-
-void basic_shooting_ennemi::Move()
-{
-    m_mainShape->move(sf::Vector2f(0, 2));
 }

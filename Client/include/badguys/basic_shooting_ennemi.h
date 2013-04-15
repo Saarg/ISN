@@ -9,7 +9,6 @@ class basic_shooting_ennemi: public basic_ennemi
     public:
         basic_shooting_ennemi(std::vector<missile*>* p_mslist, std::vector<vaisseau*>* p_entity_tab);
         virtual void Shoot();
-        virtual void Move();
 
 
 
