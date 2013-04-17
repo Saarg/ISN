@@ -5,7 +5,7 @@
 int solo(sf::RenderWindow* p_window)
 {
     p_window->setSize(sf::Vector2u(800, 900));
-    p_window->setFramerateLimit(500);
+    p_window->setFramerateLimit(1000);
 
     sf::Font font;
     std::vector<vaisseau*> entity_tab;
