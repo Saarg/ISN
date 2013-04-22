@@ -43,7 +43,15 @@ int multiplayer(sf::RenderWindow* p_window)
         std::string pseudo = "jean";
         PacketID << int(1) << ID << pseudo << 0x00ff0000;
         socket.send(PacketID);
-        run(p_window, &socket, ID);
+
+        int test = 0;
+        while(test != 1234)
+        {
+            PacketID.clear();
+            socket.receive(PacketID);
+            // Extract the variables contained in the packet
+            if (PacketID >> test){run(p_window, &socket, ID);}
+        }
     }
 
     while (p_window->isOpen())
@@ -94,6 +102,8 @@ void run(sf::RenderWindow* p_window, sf::TcpSocket* socket, int id)
         packet.clear();
         packet << int(2) << id << (int) (entity_tab[id-1]->getPosition().x) << (int) (entity_tab[id-1]->getPosition().y);
         socket->send(packet);
+
+        packet.clear();
 
         p_window->clear();
 

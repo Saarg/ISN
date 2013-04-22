@@ -1,11 +1,11 @@
 #include "solo.h"
-#include "include/bonus.h"
-#include <SFML/Graphics.hpp>
 
 int solo(sf::RenderWindow* p_window)
 {
     p_window->setSize(sf::Vector2u(800, 900));
-    p_window->setFramerateLimit(1000);
+    p_window->setFramerateLimit(60);
+
+    mapping backgroung;
 
     sf::Font font;
     std::vector<vaisseau*> entity_tab;
@@ -86,6 +86,8 @@ int solo(sf::RenderWindow* p_window)
             entity_tab[0]->setPosition(sf::Mouse::getPosition(*p_window).x-10, sf::Mouse::getPosition(*p_window).y-10);
 
         p_window->clear();
+
+        backgroung.Draw(p_window);
 
         for(std::vector<missile*>::size_type i = 0 ; i < missile_tab.size() ; i++)
         {

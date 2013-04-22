@@ -23,7 +23,8 @@ sf::Vector2f Bonus::getPosition()
 }
 void Bonus::Move()
 {
-    m_mainShape->move(m_speed);
+    sf::Time time = m_clock.restart();
+    m_mainShape->move(m_speed*(time.asSeconds()*60));
 }
 void Bonus::Draw(sf::RenderWindow* p_window)
 {

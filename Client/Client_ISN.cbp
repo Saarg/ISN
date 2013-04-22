@@ -51,6 +51,7 @@
 		<Unit filename="include/bonus.h" />
 		<Unit filename="include/missile.h" />
 		<Unit filename="include/modules/modules.h" />
+		<Unit filename="include/network/PacketList.h" />
 		<Unit filename="include/player/player.h" />
 		<Unit filename="include/vaisseau.h" />
 		<Unit filename="main.cpp" />
@@ -65,6 +66,7 @@
 		<Unit filename="src/bonus.cpp" />
 		<Unit filename="src/missile.cpp" />
 		<Unit filename="src/modules/modules.cpp" />
+		<Unit filename="src/network/PacketList.cpp" />
 		<Unit filename="src/player/player.cpp" />
 		<Unit filename="src/vaisseau.cpp" />
 		<Extensions>

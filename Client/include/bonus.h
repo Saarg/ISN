@@ -8,20 +8,21 @@
 class Bonus
 {
     public:
-    Bonus(sf::Vector2f position, sf::Color couleur1,sf::Color couleur2, int value);
-    virtual ~Bonus();
-    void Draw(sf::RenderWindow* p_window);
-    sf::Vector2f getPosition();
-    void Move();
-    int bonusVal();
-    sf::Color getFillColor();
-    sf::Color getOutlineColor();
-    sf::Vector2f getSize();
+        Bonus(sf::Vector2f position, sf::Color couleur1,sf::Color couleur2, int value);
+        virtual ~Bonus();
+        void Draw(sf::RenderWindow* p_window);
+        sf::Vector2f getPosition();
+        void Move();
+        int bonusVal();
+        sf::Color getFillColor();
+        sf::Color getOutlineColor();
+        sf::Vector2f getSize();
 
     protected:
-    sf::RectangleShape* m_mainShape;
-    sf::Vector2f m_speed;
-    int m_bonusValue;
+        sf::RectangleShape* m_mainShape;
+        sf::Vector2f m_speed;
+        int m_bonusValue;
+        sf::Clock m_clock;
 
 
 

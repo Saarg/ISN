@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Release" />
+	<ActiveTarget name="Debug" />
 	<File name="include/badguys/basic_ennemi.h" open="0" top="0" tabpos="6">
 		<Cursor position="281" topLine="0" />
 	</File>
@@ -16,6 +16,9 @@
 	<File name="include/modules/modules.h" open="0" top="0" tabpos="8">
 		<Cursor position="369" topLine="0" />
 	</File>
+	<File name="include/network/PacketList.h" open="1" top="0" tabpos="5">
+		<Cursor position="324" topLine="0" />
+	</File>
 	<File name="include/player/player.h" open="0" top="0" tabpos="6">
 		<Cursor position="357" topLine="0" />
 	</File>
@@ -23,13 +26,13 @@
 		<Cursor position="1201" topLine="0" />
 	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="260" topLine="48" />
+		<Cursor position="260" topLine="0" />
 	</File>
 	<File name="multiplayer.cpp" open="1" top="1" tabpos="2">
-		<Cursor position="2166" topLine="77" />
+		<Cursor position="1973" topLine="0" />
 	</File>
-	<File name="multiplayer.h" open="0" top="0" tabpos="3">
-		<Cursor position="217" topLine="0" />
+	<File name="multiplayer.h" open="1" top="0" tabpos="3">
+		<Cursor position="189" topLine="0" />
 	</File>
 	<File name="server.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="0" topLine="3" />
@@ -37,11 +40,11 @@
 	<File name="server.h" open="0" top="0" tabpos="4">
 		<Cursor position="225" topLine="0" />
 	</File>
-	<File name="solo.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="6806" topLine="9" />
+	<File name="solo.cpp" open="0" top="0" tabpos="3">
+		<Cursor position="6806" topLine="0" />
 	</File>
-	<File name="solo.h" open="0" top="0" tabpos="4">
-		<Cursor position="254" topLine="0" />
+	<File name="solo.h" open="0" top="0" tabpos="7">
+		<Cursor position="339" topLine="0" />
 	</File>
 	<File name="src/badguys/basic_ennemi.cpp" open="0" top="0" tabpos="7">
 		<Cursor position="230" topLine="0" />
@@ -57,6 +60,9 @@
 	</File>
 	<File name="src/modules/modules.cpp" open="0" top="0" tabpos="2">
 		<Cursor position="791" topLine="0" />
+	</File>
+	<File name="src/network/PacketList.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="16" topLine="0" />
 	</File>
 	<File name="src/player/player.cpp" open="0" top="0" tabpos="7">
 		<Cursor position="1669" topLine="11" />
