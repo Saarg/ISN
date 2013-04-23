@@ -47,6 +47,7 @@ class vaisseau
 
         sf::Time m_shootFreq;
         sf::Clock m_clock, m_clock2;
+        sf::Texture m_texture;
     private:
 };
 

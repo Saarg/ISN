@@ -3,8 +3,7 @@
 basic_shooting_ennemi::basic_shooting_ennemi(std::vector<missile*>* p_mslist, std::vector<vaisseau*>* p_entity_tab):basic_ennemi(p_mslist, p_entity_tab)
 {
      m_shootFreq = sf::seconds(0.9f);
-     //m_mainShape->setFillColor(sf::Color::Red);
-     m_mainShape = new sf::CircleShape(10.f);
+     m_mainShape->setFillColor(sf::Color(255,255,255));
      m_speed = sf::Vector2f(0, 2);
 }
 

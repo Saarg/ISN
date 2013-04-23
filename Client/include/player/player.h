@@ -15,6 +15,7 @@ class player: public vaisseau
     protected:
     private:
 
+
 };
 
 #endif // PLAYER_H

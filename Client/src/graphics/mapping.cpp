@@ -7,7 +7,7 @@ mapping::mapping()
     {
         sf::Texture texture;
         std::ostringstream oss;
-        oss << "/home/jean/Documents/projetISN/ISN/Client/ressources/mapping/space"<<i<<".png";
+        oss << "ressources/mapping/space"<<i<<".png";
         if (!texture.loadFromFile(oss.str()))
             std::cout << oss.str() << " introuvable" << std::endl;
         else

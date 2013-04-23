@@ -7,8 +7,11 @@
 	<File name="include/badguys/basic_shooting_ennemi.h" open="0" top="0" tabpos="7">
 		<Cursor position="344" topLine="0" />
 	</File>
-	<File name="include/bonus.h" open="0" top="0" tabpos="4">
-		<Cursor position="428" topLine="0" />
+	<File name="include/bonus.h" open="1" top="0" tabpos="11">
+		<Cursor position="665" topLine="0" />
+	</File>
+	<File name="include/graphics/mapping.h" open="1" top="0" tabpos="9">
+		<Cursor position="311" topLine="0" />
 	</File>
 	<File name="include/missile.h" open="0" top="0" tabpos="11">
 		<Cursor position="894" topLine="0" />
@@ -17,7 +20,7 @@
 		<Cursor position="369" topLine="0" />
 	</File>
 	<File name="include/network/PacketList.h" open="1" top="0" tabpos="5">
-		<Cursor position="324" topLine="0" />
+		<Cursor position="45" topLine="0" />
 	</File>
 	<File name="include/player/player.h" open="0" top="0" tabpos="6">
 		<Cursor position="357" topLine="0" />
@@ -26,13 +29,13 @@
 		<Cursor position="1201" topLine="0" />
 	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="260" topLine="0" />
+		<Cursor position="585" topLine="24" />
 	</File>
-	<File name="multiplayer.cpp" open="1" top="1" tabpos="2">
-		<Cursor position="1973" topLine="0" />
+	<File name="multiplayer.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="757" topLine="0" />
 	</File>
-	<File name="multiplayer.h" open="1" top="0" tabpos="3">
-		<Cursor position="189" topLine="0" />
+	<File name="multiplayer.h" open="1" top="0" tabpos="4">
+		<Cursor position="151" topLine="0" />
 	</File>
 	<File name="server.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="0" topLine="3" />
@@ -40,11 +43,11 @@
 	<File name="server.h" open="0" top="0" tabpos="4">
 		<Cursor position="225" topLine="0" />
 	</File>
-	<File name="solo.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="6806" topLine="0" />
+	<File name="solo.cpp" open="1" top="0" tabpos="7">
+		<Cursor position="165" topLine="0" />
 	</File>
-	<File name="solo.h" open="0" top="0" tabpos="7">
-		<Cursor position="339" topLine="0" />
+	<File name="solo.h" open="1" top="0" tabpos="6">
+		<Cursor position="168" topLine="0" />
 	</File>
 	<File name="src/badguys/basic_ennemi.cpp" open="0" top="0" tabpos="7">
 		<Cursor position="230" topLine="0" />
@@ -52,8 +55,11 @@
 	<File name="src/badguys/basic_shooting_ennemi.cpp" open="0" top="0" tabpos="5">
 		<Cursor position="352" topLine="0" />
 	</File>
-	<File name="src/bonus.cpp" open="0" top="0" tabpos="5">
-		<Cursor position="860" topLine="0" />
+	<File name="src/bonus.cpp" open="1" top="0" tabpos="10">
+		<Cursor position="581" topLine="0" />
+	</File>
+	<File name="src/graphics/mapping.cpp" open="1" top="1" tabpos="8">
+		<Cursor position="855" topLine="3" />
 	</File>
 	<File name="src/missile.cpp" open="0" top="0" tabpos="10">
 		<Cursor position="1472" topLine="37" />
@@ -61,7 +67,7 @@
 	<File name="src/modules/modules.cpp" open="0" top="0" tabpos="2">
 		<Cursor position="791" topLine="0" />
 	</File>
-	<File name="src/network/PacketList.cpp" open="1" top="0" tabpos="4">
+	<File name="src/network/PacketList.cpp" open="1" top="0" tabpos="3">
 		<Cursor position="16" topLine="0" />
 	</File>
 	<File name="src/player/player.cpp" open="0" top="0" tabpos="7">

@@ -4,8 +4,13 @@ vaisseau::vaisseau(std::vector<missile*>* p_mslist, std::vector<vaisseau*>* p_en
 {
     m_msList = p_mslist;
     m_entity_tab = p_entity_tab;
+    m_mainShape = new sf::RectangleShape(sf::Vector2f(20, 20));
 
-    m_mainShape = new sf::CircleShape(10.f);
+    if (!m_texture.loadFromFile("ressources/carac/vaisseau.png"))
+        std::cout << "ressources/carac/vaisseau.png introuvable" << std::endl;
+
+    m_mainShape->setTexture(&m_texture);
+
     m_mainShape->setFillColor(sf::Color::Red);
     m_mainShape->setPosition(sf::Vector2f(200, 0));
 

@@ -49,6 +49,7 @@
 		<Unit filename="include/badguys/basic_ennemi.h" />
 		<Unit filename="include/badguys/basic_shooting_ennemi.h" />
 		<Unit filename="include/bonus.h" />
+		<Unit filename="include/graphics/mapping.h" />
 		<Unit filename="include/missile.h" />
 		<Unit filename="include/modules/modules.h" />
 		<Unit filename="include/network/PacketList.h" />
@@ -64,6 +65,7 @@
 		<Unit filename="src/badguys/basic_ennemi.cpp" />
 		<Unit filename="src/badguys/basic_shooting_ennemi.cpp" />
 		<Unit filename="src/bonus.cpp" />
+		<Unit filename="src/graphics/mapping.cpp" />
 		<Unit filename="src/missile.cpp" />
 		<Unit filename="src/modules/modules.cpp" />
 		<Unit filename="src/network/PacketList.cpp" />

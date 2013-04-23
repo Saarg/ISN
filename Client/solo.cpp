@@ -4,6 +4,7 @@ int solo(sf::RenderWindow* p_window)
 {
     p_window->setSize(sf::Vector2u(800, 900));
     p_window->setFramerateLimit(60);
+    p_window->setMouseCursorVisible(false);
 
     mapping backgroung;
 

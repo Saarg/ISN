@@ -3,6 +3,7 @@
 player::player(std::vector<missile*>* p_mslist, std::vector<vaisseau*>* p_entity_tab): vaisseau(p_mslist, p_entity_tab)
 {
     m_shootFreq = sf::seconds(0.3f);
+    m_mainShape->setFillColor(sf::Color(100,200,200));
     m_mainShape->setPosition(sf::Vector2f(400, 650));
     m_scoreR = 0;
     m_scoreG = 0;
