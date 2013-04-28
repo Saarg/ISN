@@ -12,6 +12,7 @@ class Bonus
         virtual ~Bonus();
         void Draw(sf::RenderWindow* p_window);
         sf::Vector2f getPosition();
+        sf::FloatRect getGlobalBound();
         void Move();
         int bonusVal();
         sf::Color getFillColor();

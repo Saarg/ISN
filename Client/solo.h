@@ -7,6 +7,7 @@
 #include <sstream>
 #include <time.h>
 
+#include "include/spawn.h"
 #include "include/graphics/mapping.h"
 #include "include/player/player.h"
 #include "include/badguys/basic_shooting_ennemi.h"

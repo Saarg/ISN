@@ -2,7 +2,11 @@
 
 missile::missile()
 {
-    m_mainShape = new sf::RectangleShape(sf::Vector2f(10, 10));
+    m_mainShape = new sf::ConvexShape();
+    m_mainShape->setPointCount(3);
+    m_mainShape->setPoint(0, sf::Vector2f(0, 0));
+    m_mainShape->setPoint(1, sf::Vector2f(-3, -20));
+    m_mainShape->setPoint(2, sf::Vector2f(3, -20));
     m_mainShape->setFillColor(sf::Color::Green);
     m_mainShape->setPosition(sf::Vector2f(10, 10));
     setVector(sf::Vector2f(5, 5));
@@ -10,7 +14,11 @@ missile::missile()
 
 missile::missile(sf::Vector2f size, sf::Color color, sf::Vector2f position, sf::Vector2f speed)
 {
-    m_mainShape = new sf::RectangleShape(size);
+    m_mainShape = new sf::ConvexShape();
+    m_mainShape->setPointCount(3);
+    m_mainShape->setPoint(0, sf::Vector2f(0, 0));
+    m_mainShape->setPoint(1, sf::Vector2f(-3, -20));
+    m_mainShape->setPoint(2, sf::Vector2f(3, -20));
     m_mainShape->setFillColor(color);
     m_mainShape->setPosition(position);
     setVector(speed);

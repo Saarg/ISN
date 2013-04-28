@@ -17,20 +17,29 @@ Bonus::~Bonus()
 {
     delete m_mainShape;
 }
+
 sf::Vector2f Bonus::getPosition()
 {
     return m_mainShape->getPosition();
 }
+
+sf::FloatRect Bonus::getGlobalBound()
+{
+    return m_mainShape->getGlobalBounds();
+}
+
 void Bonus::Move()
 {
     sf::Time time = m_clock.restart();
     m_mainShape->move(m_speed*(time.asSeconds()*60));
 }
+
 void Bonus::Draw(sf::RenderWindow* p_window)
 {
     Move();
     p_window->draw(*m_mainShape);
 }
+
 int Bonus::bonusVal()
 {
     return m_bonusValue;

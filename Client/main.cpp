@@ -36,7 +36,27 @@
     text[3].setPosition(400-(text[3].getGlobalBounds().width)/2, 400);
     text[4].setPosition(400-(text[4].getGlobalBounds().width)/2, 450); //position des textes
 
+    float x=10, y=50;
+    float A=(-4*y)/(x*x), B=-(-4*y)/x;
+    sf::VertexArray propul(sf::Points, x*y);
+    for(int i = 0 ; i < y ; i++)
+    {
+        for(int j = 0 ; j < x ; j++)
+        {
+            float YMAX=A*(j*j)+B*j;
 
+            int alpha = 255-(i/YMAX)*255;
+            if(alpha<0)
+                alpha = 0;
+
+            int R = 255;
+            int G = 100;
+            int B = 70;
+
+            propul[i*x+j].position = sf::Vector2f(j, y-i);
+            propul[i*x+j].color = sf::Color(R, G, B, alpha);
+        }
+    }
 
     // Start the game loop
     while (window.isOpen())

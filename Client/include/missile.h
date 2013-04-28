@@ -36,7 +36,7 @@ class missile
         float m_angle;
         sf::Clock m_clock;
 
-        sf::Shape* m_mainShape;
+        sf::ConvexShape* m_mainShape;
 };
 
 #endif // MISSILE_H

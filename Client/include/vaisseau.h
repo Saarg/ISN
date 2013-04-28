@@ -8,6 +8,7 @@ class vaisseau
 {
     public:
         vaisseau(std::vector<missile*>* p_mslist, std::vector<vaisseau*>* p_entity_tab);
+        vaisseau(std::vector<missile*>* p_mslist, std::vector<vaisseau*>* p_entity_tab, std::vector<sf::Vector2f> shots, sf::Vector2f speed, sf::Color color, int life);
         virtual ~vaisseau();
 
         //Position
@@ -16,6 +17,8 @@ class vaisseau
         void setPosition(float x, float y);
 
         sf::Vector2f getPosition();
+        sf::FloatRect getGlobalBound();
+
 
         //setShapeOptions
         void setColor(sf::Color color);
@@ -39,10 +42,10 @@ class vaisseau
 
         std::vector<missile*>* m_msList;
         std::vector<vaisseau*>* m_entity_tab;
+        std::vector<sf::Vector2f> m_shots;
 
         sf::Vector2f m_speed;
         float m_life;
-        int m_bonus_score;
         int m_scoreR, m_scoreG, m_scoreB;
 
         sf::Time m_shootFreq;

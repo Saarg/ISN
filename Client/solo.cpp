@@ -13,37 +13,20 @@ int solo(sf::RenderWindow* p_window)
     std::vector<missile*> missile_tab;
     std::vector<Bonus*> bonus_tab;
 
-    entity_tab.push_back(new player(&missile_tab, &entity_tab));
-    entity_tab.push_back(new basic_shooting_ennemi(&missile_tab, &entity_tab));
 
-    srand(404);
-    int Random;
+    entity_tab.push_back(new player(&missile_tab, &entity_tab));
+
+
+
     float spawnBonus(0);
-    //int bonusScore(0);
-    //int bonValue;
     bool continuer = true;
     bool pause = false;
 
+     Spawn basicSpawn(200, &entity_tab, &missile_tab);
 
     while (p_window->isOpen() && continuer)
     {
-        /* gestion aléatoire des gros pas bô */
-        Random = rand()%1001;//nombre entre 0 et 1000
-
-
-        if(Random < 10){//1% de chance de spawn un pas joli
-            entity_tab.push_back(new basic_ennemi(&missile_tab, &entity_tab));
-            entity_tab[entity_tab.size()-1]->setPosition(rand()%781, 0);//On oubli pas la position random
-        }
-        else if(Random < 50 and Random > 48){//0.2% de chance d'un escadron de pas bô
-            entity_tab.push_back(new basic_shooting_ennemi(&missile_tab, &entity_tab));
-            entity_tab[entity_tab.size()-1]->setPosition(rand()%781, 0);//On oubli pas la position random
-        }
-        else if(Random < 55 and Random > 50){//0.2% de chance d'un escadron de pas bô
-            entity_tab.push_back(new basic_ennemi(&missile_tab, &entity_tab));
-            entity_tab[entity_tab.size()-1]->setPosition(rand()%781, 0);//On oubli pas la position random
-            entity_tab.push_back(new modules(&missile_tab, &entity_tab, entity_tab[entity_tab.size()-1], sf::Vector2f(0, 20), sf::Vector2f(3, -10)));
-        }
+        basicSpawn.create();
 
         sf::Event event;
         while (p_window->pollEvent(event))
@@ -99,15 +82,15 @@ int solo(sf::RenderWindow* p_window)
                 missile_tab[i]->Draw(p_window);
                 for(std::vector<vaisseau*>::size_type j = 0 ; j < entity_tab.size() ; j++)
                 {
-                    sf::Vector2f entityPos = entity_tab[j]->getPosition();
+                    sf::FloatRect entityBound = entity_tab[j]->getGlobalBound();
 
-                    if(entityPos.x < 0 or entityPos.y < 0 or entityPos.y > 900 or entityPos.x > 800)
+                    if(entityBound.left < 0 or entityBound.top < 0 or entityBound.top > 900 or entityBound.left > 800)
                     {
                         entity_tab.erase(entity_tab.begin()+j);
                     }
                     else if(
-                        missile_tab[i]->getPosition().x > entityPos.x and missile_tab[i]->getPosition().x < entityPos.x+20 and
-                        missile_tab[i]->getPosition().y > entityPos.y and missile_tab[i]->getPosition().y < entityPos.y+20)
+                        missile_tab[i]->getPosition().x > entityBound.left and missile_tab[i]->getPosition().x < entityBound.left+entityBound.width and
+                        missile_tab[i]->getPosition().y > entityBound.top and missile_tab[i]->getPosition().y < entityBound.top+entityBound.height)
                     {
                         missile_tab.erase(missile_tab.begin()+i);
                         entity_tab[j]->onHit(1.f);
@@ -140,23 +123,24 @@ int solo(sf::RenderWindow* p_window)
             }
         }
 
-        sf::Vector2f playerPos = entity_tab[0]->getPosition();
+        sf::FloatRect playerBound = entity_tab[0]->getGlobalBound();
 
         for(std::vector<Bonus*>::size_type a = 0 ; a < bonus_tab.size() ; a++)
         {
-            sf::Vector2f bonusPos = bonus_tab[a]->getPosition();
+            sf::FloatRect bonusBound = bonus_tab[a]->getGlobalBound();
 
-            if(bonusPos.x<0 or bonusPos.x>793 or bonusPos.y<0 or bonusPos.y > 885)
+            if(bonusBound.left<0 or bonusBound.left>793 or bonusBound.top<0 or bonusBound.top > 885)
             {
                 bonus_tab.erase(bonus_tab.begin()+a);
             }
-            else if(!(bonusPos.x<playerPos.x or bonusPos.x>playerPos.x+20 or bonusPos.y<playerPos.y or bonusPos.y>playerPos.y+20)
-                or !(bonusPos.x+10<playerPos.x or bonusPos.x+10>playerPos.x+20 or bonusPos.y<playerPos.y or bonusPos.y>playerPos.y+20)
-                or !(bonusPos.x<playerPos.x or bonusPos.x>playerPos.x+20 or bonusPos.y+10<playerPos.y or bonusPos.y+10>playerPos.y+20)
-                or !(bonusPos.x+10<playerPos.x or bonusPos.x+10>playerPos.x+20 or bonusPos.y+10<playerPos.y or bonusPos.y+10>playerPos.y+20))
+            else if(!(bonusBound.left<playerBound.left or bonusBound.left>playerBound.left+playerBound.width or bonusBound.top<playerBound.top or bonusBound.top>playerBound.top+playerBound.height)
+                or !(bonusBound.left+bonusBound.width<playerBound.left or bonusBound.left+bonusBound.width>playerBound.left+playerBound.width or bonusBound.top<playerBound.top or bonusBound.top>playerBound.top+playerBound.height)
+                or !(bonusBound.left<playerBound.left or bonusBound.left>playerBound.left+playerBound.width or bonusBound.top+bonusBound.height<playerBound.top or bonusBound.top+bonusBound.height>playerBound.top+playerBound.height)
+                or !(bonusBound.left+bonusBound.width<playerBound.left or bonusBound.left+bonusBound.width>playerBound.left+playerBound.width or bonusBound.top+bonusBound.height<playerBound.top or bonusBound.top+bonusBound.height>playerBound.top+playerBound.height))
             {
+                entity_tab[0]->changeScore(bonus_tab[a]->getFillColor(), bonus_tab[a]->getOutlineColor(), bonus_tab[a]->getSize());
                 bonus_tab.erase(bonus_tab.begin()+a);
-                entity_tab[0]->changeScore(bonus_tab[0]->getFillColor(), bonus_tab[0]->getOutlineColor(), bonus_tab[0]->getSize());
+
             }
 
         }

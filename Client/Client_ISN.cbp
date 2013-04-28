@@ -46,30 +46,27 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="include/badguys/basic_ennemi.h" />
-		<Unit filename="include/badguys/basic_shooting_ennemi.h" />
 		<Unit filename="include/bonus.h" />
 		<Unit filename="include/graphics/mapping.h" />
 		<Unit filename="include/missile.h" />
 		<Unit filename="include/modules/modules.h" />
 		<Unit filename="include/network/PacketList.h" />
 		<Unit filename="include/player/player.h" />
+		<Unit filename="include/spawn.h" />
 		<Unit filename="include/vaisseau.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="multiplayer.cpp" />
 		<Unit filename="multiplayer.h" />
-		<Unit filename="server.cpp" />
 		<Unit filename="server.h" />
 		<Unit filename="solo.cpp" />
 		<Unit filename="solo.h" />
-		<Unit filename="src/badguys/basic_ennemi.cpp" />
-		<Unit filename="src/badguys/basic_shooting_ennemi.cpp" />
 		<Unit filename="src/bonus.cpp" />
 		<Unit filename="src/graphics/mapping.cpp" />
 		<Unit filename="src/missile.cpp" />
 		<Unit filename="src/modules/modules.cpp" />
 		<Unit filename="src/network/PacketList.cpp" />
 		<Unit filename="src/player/player.cpp" />
+		<Unit filename="src/spawn.cpp" />
 		<Unit filename="src/vaisseau.cpp" />
 		<Extensions>
 			<code_completion />
