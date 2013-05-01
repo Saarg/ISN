@@ -86,6 +86,9 @@ void run(sf::RenderWindow* p_window, sf::TcpSocket* socket, int id)
     entity_tab.push_back(new player(&missile_tab, &entity_tab));
 
     sf::Packet packet;
+    PacketList aLire(socket);
+    sf::Thread thread(&PacketList::Run, &aLire);
+    thread.launch(); // start the thread (internally calls task.run())
 
     while(Run and p_window->isOpen())
     {
@@ -103,7 +106,33 @@ void run(sf::RenderWindow* p_window, sf::TcpSocket* socket, int id)
         packet << int(2) << id << (int) (entity_tab[id-1]->getPosition().x) << (int) (entity_tab[id-1]->getPosition().y);
         socket->send(packet);
 
-        packet.clear();
+        std::vector<sf::Packet> packet_tab = aLire.getPacketTab();
+
+        for(std::vector<sf::Packet>::size_type i = 0 ; i < packet_tab.size() ; i++)
+        {
+            int ID = 0;
+            if (!packet_tab[i] >> ID){std::cout << "lecture de l'id du packet impossible!" << std::endl;}
+            if(ID == 1)
+            {
+                int P_ID, couleur;
+                std::string pseudo;
+                if (!(packet_tab[i] >> P_ID >> pseudo >> couleur)){std::cout << "lecture de du packet " << P_ID << "impossible!" << std::endl;}
+                else
+                {}
+            }
+            else if(ID == 0)
+            {
+                int P_ID, X, Y;
+                if (!(packet_tab[i] >> P_ID >> X >> Y)){std::cout << "lecture de du packet " << P_ID << "impossible!" << std::endl;}
+                else
+                {
+                    entity_tab[P_ID-1]->setPosition(X, Y);
+                }
+            }
+            else{std::cout << "Packet " << ID << "nongéré!" << std::endl;}
+
+        }
+
 
         p_window->clear();
 

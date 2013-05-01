@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Debug" />
+	<ActiveTarget name="Release" />
 	<File name="include/bonus.h" open="0" top="0" tabpos="11">
 		<Cursor position="665" topLine="0" />
 	</File>
 	<File name="include/graphics/mapping.h" open="0" top="0" tabpos="1">
 		<Cursor position="311" topLine="0" />
 	</File>
-	<File name="include/missile.h" open="0" top="0" tabpos="7">
-		<Cursor position="273" topLine="0" />
+	<File name="include/missile.h" open="1" top="0" tabpos="5">
+		<Cursor position="762" topLine="0" />
 	</File>
 	<File name="include/modules/modules.h" open="0" top="0" tabpos="8">
 		<Cursor position="369" topLine="0" />
 	</File>
-	<File name="include/network/PacketList.h" open="0" top="0" tabpos="5">
-		<Cursor position="45" topLine="0" />
+	<File name="include/network/PacketList.h" open="1" top="0" tabpos="3">
+		<Cursor position="366" topLine="0" />
 	</File>
-	<File name="include/player/player.h" open="1" top="0" tabpos="5">
+	<File name="include/player/player.h" open="0" top="0" tabpos="5">
 		<Cursor position="357" topLine="0" />
 	</File>
 	<File name="include/spawn.h" open="0" top="0" tabpos="0">
 		<Cursor position="526" topLine="0" />
 	</File>
-	<File name="include/vaisseau.h" open="1" top="0" tabpos="2">
+	<File name="include/vaisseau.h" open="0" top="0" tabpos="2">
 		<Cursor position="1264" topLine="3" />
 	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="917" topLine="10" />
+	<File name="main.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="123" topLine="54" />
 	</File>
-	<File name="multiplayer.cpp" open="0" top="0" tabpos="5">
-		<Cursor position="2120" topLine="0" />
+	<File name="multiplayer.cpp" open="1" top="1" tabpos="2">
+		<Cursor position="3286" topLine="99" />
 	</File>
-	<File name="multiplayer.h" open="0" top="0" tabpos="4">
-		<Cursor position="151" topLine="0" />
+	<File name="multiplayer.h" open="1" top="0" tabpos="1">
+		<Cursor position="211" topLine="0" />
 	</File>
 	<File name="server.h" open="0" top="0" tabpos="4">
 		<Cursor position="225" topLine="0" />
@@ -55,16 +55,16 @@
 	<File name="src/modules/modules.cpp" open="0" top="0" tabpos="2">
 		<Cursor position="791" topLine="0" />
 	</File>
-	<File name="src/network/PacketList.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="16" topLine="0" />
+	<File name="src/network/PacketList.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="510" topLine="0" />
 	</File>
-	<File name="src/player/player.cpp" open="1" top="1" tabpos="3">
-		<Cursor position="1115" topLine="0" />
+	<File name="src/player/player.cpp" open="0" top="0" tabpos="3">
+		<Cursor position="950" topLine="0" />
 	</File>
-	<File name="src/spawn.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="1016" topLine="0" />
+	<File name="src/spawn.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="1370" topLine="0" />
 	</File>
-	<File name="src/vaisseau.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="2316" topLine="53" />
+	<File name="src/vaisseau.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="1013" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
