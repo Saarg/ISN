@@ -18,6 +18,8 @@ player::player(std::vector<missile*>* p_mslist, std::vector<vaisseau*>* p_entity
     m_shots.push_back(sf::Vector2f(0, -10));
     m_shots.push_back(sf::Vector2f(3, -10));
     m_shots.push_back(sf::Vector2f(-3, -10));
+
+    m_shooting = false;
 }
 
 player::~player()
@@ -25,9 +27,14 @@ player::~player()
     //dtor
 }
 
+void player::shooting(bool s)
+{
+    m_shooting = s;
+}
+
 void player::Shoot()
 {
-    if(sf::Mouse::isButtonPressed(sf::Mouse::Left) and m_clock.getElapsedTime() > m_shootFreq)
+    if(m_shooting and m_clock.getElapsedTime() > m_shootFreq)
     {
         for(std::vector<sf::Vector2f>::size_type i = 0 ; i < m_shots.size() ; i++)
         {

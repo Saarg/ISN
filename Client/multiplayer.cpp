@@ -19,7 +19,7 @@ int multiplayer(sf::RenderWindow* p_window)
 
     // Update the window
     p_window->display();
-    while(socket.connect("88.161.60.243", 25565) != sf::Socket::Done)
+    while(socket.connect("localhost", 25565) != sf::Socket::Done)
     {
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
             return EXIT_SUCCESS;
@@ -31,6 +31,7 @@ int multiplayer(sf::RenderWindow* p_window)
     int ID;
     if (PacketID >> ID)
     {
+        std::cout << ID << std::endl;
         text.setString("En attante de partenaire...");
         p_window->clear();
 
@@ -86,9 +87,6 @@ void run(sf::RenderWindow* p_window, sf::TcpSocket* socket, int id)
     entity_tab.push_back(new player(&missile_tab, &entity_tab));
 
     sf::Packet packet;
-    PacketList aLire(socket);
-    sf::Thread thread(&PacketList::Run, &aLire);
-    thread.launch(); // start the thread (internally calls task.run())
 
     while(Run and p_window->isOpen())
     {
@@ -99,38 +97,47 @@ void run(sf::RenderWindow* p_window, sf::TcpSocket* socket, int id)
                 p_window->close();
         }
 
-        if(sf::Mouse::getPosition(*p_window).x-10 > 0 and sf::Mouse::getPosition(*p_window).y-10 > 0 and sf::Mouse::getPosition(*p_window).y < 900 and sf::Mouse::getPosition(*p_window).x < 800)
-            entity_tab[0]->setPosition(sf::Mouse::getPosition(*p_window).x-10, sf::Mouse::getPosition(*p_window).y-10);
+        if(sf::Mouse::getPosition(*p_window).x-10 > 0 and sf::Mouse::getPosition(*p_window).y-10 > 0 and sf::Mouse::getPosition(*p_window).y < 900 and sf::Mouse::getPosition(*p_window).x < 800 and (sf::Mouse::getPosition(*p_window).x != entity_tab[id-1]->getPosition().x or sf::Mouse::getPosition(*p_window).y != entity_tab[id-1]->getPosition().y))
+        {
+            entity_tab[id-1]->setPosition(sf::Mouse::getPosition(*p_window).x-10, sf::Mouse::getPosition(*p_window).y-10);
+
+            packet.clear();
+            packet << int(2) << id << (int) (entity_tab[id-1]->getPosition().x) << (int) (entity_tab[id-1]->getPosition().y);
+            socket->send(packet);
+        }
 
         packet.clear();
-        packet << int(2) << id << (int) (entity_tab[id-1]->getPosition().x) << (int) (entity_tab[id-1]->getPosition().y);
-        socket->send(packet);
-
-        std::vector<sf::Packet> packet_tab = aLire.getPacketTab();
-
-        for(std::vector<sf::Packet>::size_type i = 0 ; i < packet_tab.size() ; i++)
+        socket->receive(packet);
+        int ID;
+        if (packet >> ID)
         {
-            int ID = 0;
-            if (!packet_tab[i] >> ID){std::cout << "lecture de l'id du packet impossible!" << std::endl;}
+            packet.clear();
+            socket->setBlocking(true);
+            socket->receive(packet);
+            socket->setBlocking(false);
+            std::cout << ID << std::endl;
             if(ID == 1)
             {
                 int P_ID, couleur;
                 std::string pseudo;
-                if (!(packet_tab[i] >> P_ID >> pseudo >> couleur)){std::cout << "lecture de du packet " << P_ID << "impossible!" << std::endl;}
+                if(packet >> P_ID >> pseudo >> couleur)
+                    std::cout << P_ID << " " << pseudo << " joue contre vous" << std::endl;
                 else
-                {}
+                    std::cout << "nope buffer marche pas" << std::endl;
             }
-            else if(ID == 0)
+            else if (ID == 2)
             {
                 int P_ID, X, Y;
-                if (!(packet_tab[i] >> P_ID >> X >> Y)){std::cout << "lecture de du packet " << P_ID << "impossible!" << std::endl;}
-                else
-                {
+                if(packet >> P_ID >> X >> Y)
                     entity_tab[P_ID-1]->setPosition(X, Y);
-                }
+                else
+                    std::cout << "nope buffer marche pas2" << std::endl;
             }
-            else{std::cout << "Packet " << ID << "nongéré!" << std::endl;}
-
+            else{}
+        }
+        else
+        {
+            //std::cout << "lecture de l'id du packet impossible!" << std::endl;
         }
 
 

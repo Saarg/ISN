@@ -21,12 +21,11 @@
     sf::Text text[5];
     text[0]=sf::Text("solo", font, 50 );
     text[1]=sf::Text("duel", font, 50 );
-    text[2]=sf::Text("multijoueur", font, 50 );
+    text[2]=sf::Text("CupCake PARTY!!!!!!!", font, 50 );
     text[3]=sf::Text("options", font, 50 );
     text[4]=sf::Text("quitter", font, 50 );                            //tableau de caractere
 
     int a(0);                                                          //a ---> la variable permettant de naviguer dans le menu
-    bool quit = false;                                                //quit permettras de fermer le programme
 
     texttitle.setPosition(400-(texttitle.getGlobalBounds().width)/2, 100);
 
@@ -63,31 +62,22 @@
     {
         // Process events
         sf::Event event;
+        text[a].setColor(sf::Color::White);
         while (window.pollEvent(event))
         {
             // Close window : exit
-            if (event.type == sf::Event::Closed or quit )
+            if (event.type == sf::Event::Closed)
                 window.close();
-
-            text[a].setColor(sf::Color::White);
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-            {
-                    a=a-1;
-            }
-              else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-            {
-                     a=a+1;
-            }
-            if(a<0 )
-            {
-            a =4;
-            }
-            else if(a>4.4 )
-            {
-            a =0;
-            }
-            text[a].setColor(sf::Color::Red);
+            else if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Up))
+                a=a-1;
+            else if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Down))
+                a=a+1;
         }
+        if(a<0 )
+            a =4;
+        else if(a>4.4 )
+            a =0;
+        text[a].setColor(sf::Color::Red);
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
         {
@@ -108,7 +98,7 @@
                     break;
 
                 case 4:
-                    quit=true;
+                    window.close();
                     break;
 
             }

@@ -15,5 +15,6 @@
 #include "include/bonus.h"
 
 int solo(sf::RenderWindow* p_window);
+bool pause(sf::RenderWindow* p_window, bool f);
 
 #endif // SOLO_H

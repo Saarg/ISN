@@ -15,16 +15,14 @@ int solo(sf::RenderWindow* p_window)
 
 
     entity_tab.push_back(new player(&missile_tab, &entity_tab));
-
+    player* p =  (player*) (entity_tab[0]);
 
 
     float spawnBonus(0);
-    bool continuer = true;
-    bool pause = false;
 
-     Spawn basicSpawn(200, &entity_tab, &missile_tab);
+    Spawn basicSpawn(200, &entity_tab, &missile_tab);
 
-    while (p_window->isOpen() && continuer)
+    while (p_window->isOpen())
     {
         basicSpawn.create();
 
@@ -36,38 +34,33 @@ int solo(sf::RenderWindow* p_window)
             //RandomBonus = rand()%1001;
             if (event.type == sf::Event::Closed)
                 p_window->close();
-            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-                pause = true;
-
-                while(pause){
-                    sf::Text textpause("pause", font, 50);
-                    sf::Text textoui("oui", font, 50);
-                    sf::Text textnon("non", font, 50);
-                    sf::Text pressEchap("press Echap", font, 50);
-                    sf::Text pressReturn("press Return", font, 50);
-
-                    textpause.setPosition(400-(textpause.getGlobalBounds().width)/2, 100);
-                    textoui.setPosition(350, 100);
-                    textnon.setPosition(50, 200);
-                    pressEchap.setPosition(350, 300);
-                    pressReturn.setPosition(50, 400);
-
-                    p_window->display();
-
-                    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-                    {
-                         continuer=false;
-                         pause=false;
-                    }
-
-                    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
-                        pause=false;
+            else if((event.type == sf::Event::MouseButtonPressed) && (event.mouseButton.button == sf::Mouse::Left))
+                p->shooting(true);
+            else if((event.type == sf::Event::MouseButtonReleased) && (event.mouseButton.button == sf::Mouse::Left))
+                p->shooting(false);
+            else if (event.type == sf::Event::LostFocus and !pause(p_window, false))
+            {
+                if(!pause(p_window, false))
+                    p_window->close();
+                else
+                {
+                    //TODO reset des timers entity, missiles, bonus
                 }
-
+            }
+            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+            {
+                if(!pause(p_window, true))
+                    p_window->close();
+                else
+                {
+                    //TODO reset des timers entity, missiles, bonus
+                }
+            }
         }
 
         if(sf::Mouse::getPosition(*p_window).x-10 > 0 and sf::Mouse::getPosition(*p_window).y-10 > 0 and sf::Mouse::getPosition(*p_window).y < 900 and sf::Mouse::getPosition(*p_window).x < 800)
-            entity_tab[0]->setPosition(sf::Mouse::getPosition(*p_window).x-10, sf::Mouse::getPosition(*p_window).y-10);
+            p->setPosition(sf::Mouse::getPosition(*p_window).x-10, sf::Mouse::getPosition(*p_window).y-10);
+
 
         p_window->clear();
 
@@ -158,4 +151,45 @@ int solo(sf::RenderWindow* p_window)
     }
 
     return 0;
+}
+
+bool pause(sf::RenderWindow* p_window, bool f)
+{
+    sf::Clock c;
+
+    sf::Font font;
+    if (!font.loadFromFile("foughtknight.ttf"))                        //police d'écriture
+        return false;
+
+    bool focus = f;
+
+    sf::Text textpause("pause", font, 50);
+    sf::Text textquit("quitter: press Echap", font, 50);
+    sf::Text textgo("reprendre: press Return", font, 50);
+
+    textpause.setPosition(400-(textpause.getGlobalBounds().width)/2, 100);
+    textquit.setPosition(400-(textquit.getGlobalBounds().width)/2, 200);
+    textgo.setPosition(400-(textgo.getGlobalBounds().width)/2, 250);
+    while (p_window->isOpen())
+    {
+        sf::Event event;
+        while (p_window->pollEvent(event))
+        {
+            if (event.type == sf::Event::GainedFocus)
+                focus = true;
+            else if(event.type == sf::Event::LostFocus)
+                focus = false;
+            else if (focus and ((event.type == sf::Event::Closed) or (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))) and c.getElapsedTime() > sf::seconds(0.5f))
+                return false;
+            else if (focus and (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)))
+                return true;
+
+        }
+
+        p_window->draw(textpause);
+        p_window->draw(textquit);
+        p_window->draw(textgo);
+        p_window->display();
+    }
+    return false;
 }
