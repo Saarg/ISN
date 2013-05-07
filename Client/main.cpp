@@ -21,19 +21,19 @@
     sf::Text text[5];
     text[0]=sf::Text("solo", font, 50 );
     text[1]=sf::Text("duel", font, 50 );
-    text[2]=sf::Text("CupCake PARTY!!!!!!!", font, 50 );
+    text[2]=sf::Text("multijoueur", font, 50 );
     text[3]=sf::Text("options", font, 50 );
     text[4]=sf::Text("quitter", font, 50 );                            //tableau de caractere
 
     int a(0);                                                          //a ---> la variable permettant de naviguer dans le menu
 
-    texttitle.setPosition(400-(texttitle.getGlobalBounds().width)/2, 100);
+    texttitle.setPosition(window.getSize().x/2-(texttitle.getGlobalBounds().width)/2, 100);
 
-    text[0].setPosition(400-(text[0].getGlobalBounds().width)/2, 250);
-    text[1].setPosition(400-(text[1].getGlobalBounds().width)/2, 300);
-    text[2].setPosition(400-(text[2].getGlobalBounds().width)/2, 350);
-    text[3].setPosition(400-(text[3].getGlobalBounds().width)/2, 400);
-    text[4].setPosition(400-(text[4].getGlobalBounds().width)/2, 450); //position des textes
+    text[0].setPosition(window.getSize().x/2-(text[0].getGlobalBounds().width)/2, 250);
+    text[1].setPosition(window.getSize().x/2-(text[1].getGlobalBounds().width)/2, 300);
+    text[2].setPosition(window.getSize().x/2-(text[2].getGlobalBounds().width)/2, 350);
+    text[3].setPosition(window.getSize().x/2-(text[3].getGlobalBounds().width)/2, 400);
+    text[4].setPosition(window.getSize().x/2-(text[4].getGlobalBounds().width)/2, 450); //position des textes
 
     float x=10, y=50;
     float A=(-4*y)/(x*x), B=-(-4*y)/x;

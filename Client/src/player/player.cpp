@@ -27,6 +27,11 @@ player::~player()
     //dtor
 }
 
+void player::Move(int x, int y)
+{
+    m_mainShape->move(x, y);
+}
+
 void player::shooting(bool s)
 {
     m_shooting = s;
@@ -47,9 +52,32 @@ void player::Shoot()
 void player::Move()
 {
     m_mainShape->move(m_speed);
+    m_speed.x =  m_speed.x - m_speed.x/7;
+    m_speed.y =  m_speed.y - m_speed.y/7;
 }
 
 void player::onHit(float degat)
 {
 
+}
+
+void player::acceleration(int dir)//Droite Gauche Haut Bas None
+{
+    switch(dir)
+    {
+        case 0:
+            m_speed.x -= 1;
+            break;
+        case 1:
+            m_speed.x += 1;
+            break;
+        case 2:
+            m_speed.y -= 1;
+            break;
+        case 3:
+            m_speed.y += 1;
+            break;
+        default:
+            break;
+    }
 }

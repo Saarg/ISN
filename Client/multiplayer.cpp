@@ -95,6 +95,14 @@ void run(sf::RenderWindow* p_window, sf::TcpSocket* socket, int id)
         {
             if (event.type == sf::Event::Closed)
                 p_window->close();
+            else if(((event.type == sf::Event::MouseButtonPressed) or (event.type == sf::Event::MouseButtonReleased)) and (event.mouseButton.button == sf::Mouse::Left))
+            {
+                player* p = (player*) (entity_tab[id-1]);
+                p->shooting(sf::Mouse::isButtonPressed(sf::Mouse::Left));
+                packet.clear();
+                packet << int(3) << id << sf::Mouse::isButtonPressed(sf::Mouse::Left);
+                socket->send(packet);
+            }
         }
 
         if(sf::Mouse::getPosition(*p_window).x-10 > 0 and sf::Mouse::getPosition(*p_window).y-10 > 0 and sf::Mouse::getPosition(*p_window).y < 900 and sf::Mouse::getPosition(*p_window).x < 800 and (sf::Mouse::getPosition(*p_window).x != entity_tab[id-1]->getPosition().x or sf::Mouse::getPosition(*p_window).y != entity_tab[id-1]->getPosition().y))
@@ -115,7 +123,6 @@ void run(sf::RenderWindow* p_window, sf::TcpSocket* socket, int id)
             socket->setBlocking(true);
             socket->receive(packet);
             socket->setBlocking(false);
-            std::cout << ID << std::endl;
             if(ID == 1)
             {
                 int P_ID, couleur;
@@ -123,7 +130,7 @@ void run(sf::RenderWindow* p_window, sf::TcpSocket* socket, int id)
                 if(packet >> P_ID >> pseudo >> couleur)
                     std::cout << P_ID << " " << pseudo << " joue contre vous" << std::endl;
                 else
-                    std::cout << "nope buffer marche pas" << std::endl;
+                    std::cout << "packet " << ID << " impossible a lire" << std::endl;
             }
             else if (ID == 2)
             {
@@ -131,7 +138,32 @@ void run(sf::RenderWindow* p_window, sf::TcpSocket* socket, int id)
                 if(packet >> P_ID >> X >> Y)
                     entity_tab[P_ID-1]->setPosition(X, Y);
                 else
-                    std::cout << "nope buffer marche pas2" << std::endl;
+                    std::cout << "packet " << ID << " impossible a lire" << std::endl;
+            }
+            else if (ID == 3)
+            {
+                int P_ID;
+                bool fire;
+                if(packet >> P_ID >> fire)
+                {
+                    player* p = (player*) (entity_tab[P_ID-1]);
+                    p->shooting(fire);
+                }
+                else
+                    std::cout << "packet " << ID << " impossible a lire" << std::endl;
+            }
+            else if (ID == 4)
+            {
+                int X, S_X, S_Y, life;
+                if(packet >> X >> S_X >> S_Y >> life)
+                {
+                    std::vector<sf::Vector2f> shots;
+                    shots.push_back(sf::Vector2f(0, 10));
+                    entity_tab.push_back(new vaisseau(&missile_tab, &entity_tab, shots, sf::Vector2f(S_X, S_Y), sf::Color::Red, life));
+                    entity_tab[entity_tab.size()-1]->setPosition(X, 0);
+                }
+                else
+                    std::cout << "packet " << ID << " impossible a lire" << std::endl;
             }
             else{}
         }

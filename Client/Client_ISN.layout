@@ -7,41 +7,41 @@
 	<File name="include/graphics/mapping.h" open="0" top="0" tabpos="1">
 		<Cursor position="311" topLine="0" />
 	</File>
-	<File name="include/missile.h" open="1" top="0" tabpos="5">
+	<File name="include/missile.h" open="0" top="0" tabpos="5">
 		<Cursor position="762" topLine="0" />
 	</File>
 	<File name="include/modules/modules.h" open="0" top="0" tabpos="8">
 		<Cursor position="369" topLine="0" />
 	</File>
-	<File name="include/network/PacketList.h" open="1" top="0" tabpos="3">
+	<File name="include/network/PacketList.h" open="0" top="0" tabpos="3">
 		<Cursor position="92" topLine="0" />
 	</File>
-	<File name="include/player/player.h" open="0" top="0" tabpos="5">
-		<Cursor position="357" topLine="0" />
+	<File name="include/player/player.h" open="1" top="0" tabpos="4">
+		<Cursor position="268" topLine="0" />
 	</File>
 	<File name="include/spawn.h" open="0" top="0" tabpos="0">
 		<Cursor position="526" topLine="0" />
 	</File>
-	<File name="include/vaisseau.h" open="0" top="0" tabpos="2">
-		<Cursor position="1264" topLine="3" />
+	<File name="include/vaisseau.h" open="1" top="0" tabpos="3">
+		<Cursor position="472" topLine="3" />
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="6">
-		<Cursor position="123" topLine="63" />
+	<File name="main.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="367" topLine="0" />
 	</File>
-	<File name="multiplayer.cpp" open="1" top="1" tabpos="2">
-		<Cursor position="3486" topLine="71" />
+	<File name="multiplayer.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="4526" topLine="0" />
 	</File>
-	<File name="multiplayer.h" open="1" top="0" tabpos="1">
+	<File name="multiplayer.h" open="0" top="0" tabpos="1">
 		<Cursor position="211" topLine="0" />
 	</File>
 	<File name="server.h" open="0" top="0" tabpos="4">
 		<Cursor position="225" topLine="0" />
 	</File>
-	<File name="solo.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="438" topLine="0" />
+	<File name="solo.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="2582" topLine="4" />
 	</File>
-	<File name="solo.h" open="0" top="0" tabpos="4">
-		<Cursor position="149" topLine="0" />
+	<File name="solo.h" open="0" top="0" tabpos="9">
+		<Cursor position="430" topLine="0" />
 	</File>
 	<File name="src/bonus.cpp" open="0" top="0" tabpos="10">
 		<Cursor position="581" topLine="0" />
@@ -55,16 +55,16 @@
 	<File name="src/modules/modules.cpp" open="0" top="0" tabpos="2">
 		<Cursor position="791" topLine="0" />
 	</File>
-	<File name="src/network/PacketList.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="510" topLine="0" />
+	<File name="src/network/PacketList.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="17" topLine="0" />
 	</File>
-	<File name="src/player/player.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="950" topLine="0" />
+	<File name="src/player/player.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="719" topLine="0" />
 	</File>
-	<File name="src/spawn.cpp" open="0" top="0" tabpos="4">
-		<Cursor position="1370" topLine="0" />
+	<File name="src/spawn.cpp" open="1" top="1" tabpos="6">
+		<Cursor position="655" topLine="0" />
 	</File>
-	<File name="src/vaisseau.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="1013" topLine="0" />
+	<File name="src/vaisseau.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="529" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>

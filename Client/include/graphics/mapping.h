@@ -19,7 +19,7 @@ class mapping
 
         sf::Vector2f m_pos;
         std::vector<sf::Texture>  m_texture_tab;
-        sf::Sprite m_mapping[8][10];
+        sf::Sprite m_mapping[9][11];
 
 };
 

@@ -9,11 +9,18 @@ class player: public vaisseau
         player(std::vector<missile*>* p_mslist, std::vector<vaisseau*>* p_entity_tab);
         virtual ~player();
 
+        virtual void Move(int x, int y);
+
         void shooting(bool s);
 
         virtual void Shoot();
         virtual void Move();
         virtual void onHit(float degat);
+
+
+        void acceleration(int dir);//Droite Gauche Haut Bas None
+
+
     protected:
     private:
         bool m_shooting;

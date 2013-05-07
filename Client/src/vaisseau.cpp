@@ -10,6 +10,7 @@ vaisseau::vaisseau(std::vector<missile*>* p_mslist, std::vector<vaisseau*>* p_en
         std::cout << "ressources/carac/vaisseau.png introuvable" << std::endl;
 
     m_mainShape->setTexture(&m_texture);
+    m_mainShape->setOrigin(sf::Vector2f(m_mainShape->getGlobalBounds().width/2, m_mainShape->getGlobalBounds().height/2));
 
     m_mainShape->setFillColor(sf::Color::Red);
     m_mainShape->setPosition(sf::Vector2f(200, 0));
@@ -32,6 +33,7 @@ vaisseau::vaisseau(std::vector<missile*>* p_mslist, std::vector<vaisseau*>* p_en
         std::cout << "ressources/carac/vaisseau.png introuvable" << std::endl;
 
     m_mainShape->setTexture(&m_texture);
+    m_mainShape->setOrigin(sf::Vector2f(m_mainShape->getGlobalBounds().width/2, m_mainShape->getGlobalBounds().height/2));
 
     m_mainShape->setFillColor(color);
     m_mainShape->setPosition(sf::Vector2f(200, 0));
@@ -51,6 +53,11 @@ vaisseau::~vaisseau()
 void vaisseau::setPosition(int X, int Y)
 {
     m_mainShape->setPosition(X, Y);
+}
+
+void vaisseau::Move(int x, int y)
+{
+    m_mainShape->move(x, y);
 }
 
 sf::Vector2f vaisseau::getPosition()
@@ -116,11 +123,11 @@ void vaisseau::Draw(sf::RenderWindow* p_window)
 {
     Move();
     Shoot();
-    p_window->draw(*m_mainShape);
-    float x=getGlobalBound().width/3, y=m_speed.y*10;
+
+    float x=getGlobalBound().width/3, y=(int)(sqrt(m_speed.y*m_speed.y))*10;
     float A=(-4*y)/(x*x), B=-(-4*y)/x;
 
-    sf::VertexArray propul = sf::VertexArray(sf::Points, x*y);
+    sf::VertexArray propul = sf::VertexArray(sf::Points, x*y+1);
     for(int i = 0 ; i < y ; i++)
     {
         for(int j = 0 ; j < x ; j++)
@@ -135,11 +142,18 @@ void vaisseau::Draw(sf::RenderWindow* p_window)
             int G = 100;
             int B = 70;
 
-            propul[i*x+j].position = getPosition()+sf::Vector2f(j+((getGlobalBound().width/2)-(x/2)), -i);
+
+
+            if(m_speed.y > 0)
+                propul[i*x+j].position = getPosition()+sf::Vector2f(j-(x/2), -getGlobalBound().width/2-i);
+            else
+                propul[i*x+j].position = getPosition()+sf::Vector2f(j-(x/2), getGlobalBound().width/2+i);
             propul[i*x+j].color = sf::Color(R, G, B, alpha);
         }
     }
+
     p_window->draw(propul);
+    p_window->draw(*m_mainShape);
 
     if(m_life <= 0)
     {

@@ -12,9 +12,9 @@ class vaisseau
         virtual ~vaisseau();
 
         //Position
-        void setPosition(sf::Vector2f position);
         void setPosition(int x, int y);
-        void setPosition(float x, float y);
+
+        virtual void Move(int x, int y);
 
         sf::Vector2f getPosition();
         sf::FloatRect getGlobalBound();
