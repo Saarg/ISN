@@ -13,6 +13,7 @@
 #include "include/badguys/basic_shooting_ennemi.h"
 #include "include/modules/modules.h"
 #include "include/bonus.h"
+#include "include/graphics/HUD.h"
 
 int solo(sf::RenderWindow* p_window);
 bool pause(sf::RenderWindow* p_window, bool f);

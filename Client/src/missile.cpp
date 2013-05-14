@@ -5,8 +5,8 @@ missile::missile()
     m_mainShape = new sf::ConvexShape();
     m_mainShape->setPointCount(3);
     m_mainShape->setPoint(0, sf::Vector2f(0, 0));
-    m_mainShape->setPoint(1, sf::Vector2f(-3, -20));
-    m_mainShape->setPoint(2, sf::Vector2f(3, -20));
+    m_mainShape->setPoint(1, sf::Vector2f(-2, -20));
+    m_mainShape->setPoint(2, sf::Vector2f(2, -20));
     m_mainShape->setFillColor(sf::Color::Green);
     m_mainShape->setPosition(sf::Vector2f(10, 10));
     setVector(sf::Vector2f(5, 5));
@@ -17,8 +17,8 @@ missile::missile(sf::Vector2f size, sf::Color color, sf::Vector2f position, sf::
     m_mainShape = new sf::ConvexShape();
     m_mainShape->setPointCount(3);
     m_mainShape->setPoint(0, sf::Vector2f(0, 0));
-    m_mainShape->setPoint(1, sf::Vector2f(-3, -20));
-    m_mainShape->setPoint(2, sf::Vector2f(3, -20));
+    m_mainShape->setPoint(1, sf::Vector2f(-2, -20));
+    m_mainShape->setPoint(2, sf::Vector2f(2, -20));
     m_mainShape->setFillColor(color);
     m_mainShape->setPosition(position);
     setVector(speed);
@@ -61,6 +61,11 @@ sf::Vector2f missile::getPosition()
 sf::Vector2f missile::getVector()
 {
     return m_speed;
+}
+
+sf::FloatRect missile::getGlobalBound()
+{
+    return m_mainShape->getGlobalBounds();
 }
 
 //getShapeOptions

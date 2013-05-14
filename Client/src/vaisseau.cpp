@@ -95,7 +95,7 @@ void vaisseau::Shoot()
     {
         for(std::vector<sf::Vector2f>::size_type i = 0 ; i < m_shots.size() ; i++)
         {
-            m_msList->push_back(new missile(sf::Vector2f(3, 10), sf::Color::Green, sf::Vector2f(getGlobalBound().left+getGlobalBound().width/2, getGlobalBound().top+getGlobalBound().height), m_shots[i]));
+            m_msList->push_back(new missile(sf::Vector2f(3, 10), sf::Color::Green, sf::Vector2f(getGlobalBound().left+getGlobalBound().width/2, getGlobalBound().top+getGlobalBound().height+5), m_shots[i]));
         }
         m_clock.restart();
     }
@@ -127,7 +127,7 @@ void vaisseau::Draw(sf::RenderWindow* p_window)
     float x=getGlobalBound().width/3, y=(int)(sqrt(m_speed.y*m_speed.y))*10;
     float A=(-4*y)/(x*x), B=-(-4*y)/x;
 
-    sf::VertexArray propul = sf::VertexArray(sf::Points, x*y+1);
+    sf::VertexArray propul = sf::VertexArray(sf::Points, x*y+1);//le +1 au tableau previend tout debordement du au float
     for(int i = 0 ; i < y ; i++)
     {
         for(int j = 0 ; j < x ; j++)
@@ -159,7 +159,7 @@ void vaisseau::Draw(sf::RenderWindow* p_window)
     {
         for(std::vector<vaisseau*>::size_type j = 0 ; j < m_entity_tab->size() ; j++)
         {
-            if(m_entity_tab->at(j)->getPosition() == getPosition())
+            if(m_entity_tab->at(j) == this)
                 m_entity_tab->erase(m_entity_tab->begin()+j);
         }
     }

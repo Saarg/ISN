@@ -11,7 +11,7 @@ class player: public vaisseau
 
         virtual void Move(int x, int y);
 
-        void shooting(bool s);
+        void shooting(int s);
 
         virtual void Shoot();
         virtual void Move();
@@ -23,7 +23,7 @@ class player: public vaisseau
 
     protected:
     private:
-        bool m_shooting;
+        int m_shooting;
 
 
 };

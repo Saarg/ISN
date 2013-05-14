@@ -1,9 +1,9 @@
 #include "../include/bonus.h"
 
-Bonus::Bonus(sf::Vector2f position,sf::Color couleur1,sf::Color couleur2, int value)
+Bonus::Bonus(sf::Vector2f position,sf::Color couleur1,sf::Color couleur2, float value)
 {
 
-  m_mainShape = new sf::RectangleShape(sf::Vector2f(10, 10));
+  m_mainShape = new sf::RectangleShape(sf::Vector2f(5*value, 5*value));
   m_mainShape->setFillColor(couleur1);
   m_mainShape->setOutlineThickness(2);
   m_mainShape->setOutlineColor(couleur2);
@@ -40,7 +40,7 @@ void Bonus::Draw(sf::RenderWindow* p_window)
     p_window->draw(*m_mainShape);
 }
 
-int Bonus::bonusVal()
+float Bonus::bonusVal()
 {
     return m_bonusValue;
 }

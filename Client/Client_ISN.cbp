@@ -47,6 +47,7 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="include/bonus.h" />
+		<Unit filename="include/graphics/HUD.h" />
 		<Unit filename="include/graphics/mapping.h" />
 		<Unit filename="include/missile.h" />
 		<Unit filename="include/modules/modules.h" />
@@ -61,6 +62,7 @@
 		<Unit filename="solo.cpp" />
 		<Unit filename="solo.h" />
 		<Unit filename="src/bonus.cpp" />
+		<Unit filename="src/graphics/HUD.cpp" />
 		<Unit filename="src/graphics/mapping.cpp" />
 		<Unit filename="src/missile.cpp" />
 		<Unit filename="src/modules/modules.cpp" />

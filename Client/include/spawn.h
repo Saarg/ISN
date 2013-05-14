@@ -22,9 +22,6 @@ class Spawn
         std::vector<vaisseau*>* m_entity_tab;
         std::vector<missile*>* m_msList;
 
-
-
-
 };
 
 

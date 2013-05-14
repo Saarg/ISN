@@ -20,6 +20,7 @@ class missile
         void setAngle(float angle);
 
         sf::Vector2f getPosition();
+        sf::FloatRect getGlobalBound();
         sf::Vector2f getVector();
         //getShapeOptions
         sf::Color getColor();

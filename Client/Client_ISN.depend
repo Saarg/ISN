@@ -2809,14 +2809,14 @@
 	<SFML/Network/Socket.hpp>
 	<vector>
 
-1367947633 /home/jean/Documents/projetISN/ISN/Client/include/player/player.h
+1368016107 /home/jean/Documents/projetISN/ISN/Client/include/player/player.h
 	"../vaisseau.h"
 
 1367705792 /home/jean/Documents/projetISN/ISN/Client/include/vaisseau.h
 	<vector>
 	"missile.h"
 
-1366750879 /home/jean/Documents/projetISN/ISN/Client/include/missile.h
+1368199324 /home/jean/Documents/projetISN/ISN/Client/include/missile.h
 	<SFML/Graphics.hpp>
 	<math.h>
 	<stdio.h>
@@ -3079,16 +3079,16 @@
 1366729242 source:/home/jean/Documents/projetISN/ISN/Client/src/badguys/basic_shooting_ennemi.cpp
 	"../../include/badguys/basic_shooting_ennemi.h"
 
-1366751043 source:/home/jean/Documents/projetISN/ISN/Client/src/missile.cpp
+1368217006 source:/home/jean/Documents/projetISN/ISN/Client/src/missile.cpp
 	"../include/missile.h"
 
 1358014058 source:/home/jean/Documents/projetISN/ISN/Client/src/modules/modules.cpp
 	"../../include/modules/modules.h"
 
-1367948436 source:/home/jean/Documents/projetISN/ISN/Client/src/player/player.cpp
+1368296343 source:/home/jean/Documents/projetISN/ISN/Client/src/player/player.cpp
 	"../../include/player/player.h"
 
-1367953513 source:/home/jean/Documents/projetISN/ISN/Client/src/vaisseau.cpp
+1368200500 source:/home/jean/Documents/projetISN/ISN/Client/src/vaisseau.cpp
 	"../include/vaisseau.h"
 
 1367946011 source:/home/jean/Documents/projetISN/ISN/Client/main.cpp
@@ -3097,7 +3097,7 @@
 	"include/graphics/mapping.h"
 	<SFML/Graphics.hpp>
 
-1367544837 /home/jean/Documents/projetISN/ISN/Client/solo.h
+1368292489 /home/jean/Documents/projetISN/ISN/Client/solo.h
 	<SFML/Graphics.hpp>
 	<map>
 	<vector>
@@ -3109,6 +3109,7 @@
 	"include/badguys/basic_shooting_ennemi.h"
 	"include/modules/modules.h"
 	"include/bonus.h"
+	"include/graphics/HUD.h"
 
 1366546077 /home/jean/Documents/projetISN/ISN/Client/multiplayer.h
 	<SFML/Audio.hpp>
@@ -3178,19 +3179,19 @@
 	<SFML/System/Thread.hpp>
 	<vector>
 
-1367947817 source:/home/jean/Documents/projetISN/ISN/Client/solo.cpp
+1368298579 source:/home/jean/Documents/projetISN/ISN/Client/solo.cpp
 	"solo.h"
 
 1367556382 source:/home/jean/Documents/projetISN/ISN/Client/multiplayer.cpp
 	"multiplayer.h"
 
-1367098670 /home/jean/Documents/projetISN/ISN/Client/include/bonus.h
+1368298509 /home/jean/Documents/projetISN/ISN/Client/include/bonus.h
 	<SFML/Graphics.hpp>
 	<math.h>
 	<stdio.h>
 	<iostream>
 
-1367098871 source:/home/jean/Documents/projetISN/ISN/Client/src/bonus.cpp
+1368298509 source:/home/jean/Documents/projetISN/ISN/Client/src/bonus.cpp
 	"../include/bonus.h"
 
 1366546092 source:/home/jean/Documents/projetISN/ISN/Client/src/network/PacketList.cpp
@@ -3209,13 +3210,13 @@
 	<sstream>
 	<iostream>
 
-1367097213 /home/jean/Documents/projetISN/ISN/Client/include/spawn.h
+1368016881 /home/jean/Documents/projetISN/ISN/Client/include/spawn.h
 	"vaisseau.h"
 	"badguys/basic_shooting_ennemi.h"
 	"badguys/basic_ennemi.h"
 	"modules/modules.h"
 
-1367945980 source:/home/jean/Documents/projetISN/ISN/Client/src/spawn.cpp
+1368291776 source:/home/jean/Documents/projetISN/ISN/Client/src/spawn.cpp
 	"../include/spawn.h"
 
 1367099406 /home/jean/Documents/projetISN/ISN/Client/include/graphics/propultion.h
@@ -3689,4 +3690,11 @@
 	<SFML/Network/Export.hpp>
 	<SFML/Network/Socket.hpp>
 	<vector>
+
+1368298549 /home/jean/Documents/projetISN/ISN/Client/include/graphics/HUD.h
+	<SFML/Graphics.hpp>
+	<sstream>
+
+1368298509 source:/home/jean/Documents/projetISN/ISN/Client/src/graphics/HUD.cpp
+	"../../include/graphics/HUD.h"
 
