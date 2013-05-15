@@ -13,14 +13,23 @@ class Spawn
     public:
         Spawn(int seed, std::vector<vaisseau*>* p_entity_tab, std::vector<missile*>* p_mslist);
         void create();
+        int formaLigne();
 
 
     private:
         sf::Clock m_clock;
+        sf::Clock m_clock2;
+
+        int FormaType;
+        int spawnLimit;
+
 
         int m_Random;
         std::vector<vaisseau*>* m_entity_tab;
         std::vector<missile*>* m_msList;
+
+
+
 
 };
 

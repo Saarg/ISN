@@ -18,6 +18,8 @@ class vaisseau
 
         sf::Vector2f getPosition();
         sf::FloatRect getGlobalBound();
+        float getRotation();
+        void setRotation(float angle);
 
 
         //setShapeOptions

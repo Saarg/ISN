@@ -68,18 +68,18 @@
             // Close window : exit
             if (event.type == sf::Event::Closed)
                 window.close();
-            else if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Up))
+            else if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Up))//touche Z ou haut
                 a=a-1;
             else if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Down))
                 a=a+1;
         }
-        if(a<0 )
+        if(a<0 )//condition
             a =4;
         else if(a>4.4 )
             a =0;
         text[a].setColor(sf::Color::Red);
 
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return))//sionfaitentré
         {
             switch(a)
             {

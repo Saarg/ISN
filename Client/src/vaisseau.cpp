@@ -70,6 +70,16 @@ sf::FloatRect vaisseau::getGlobalBound()
     return m_mainShape->getGlobalBounds();
 }
 
+float vaisseau::getRotation()
+{
+    return m_mainShape->getRotation();
+}
+
+void vaisseau::setRotation(float angle)
+{
+    m_mainShape->setRotation(angle);
+}
+
 void vaisseau::setColor(sf::Color color)
 {
     m_mainShape->setFillColor(color);

@@ -88,6 +88,8 @@ void run(sf::RenderWindow* p_window, sf::TcpSocket* socket, int id)
 
     sf::Packet packet;
 
+    player* p =  (player*) (entity_tab[id-1]);
+
     while(Run and p_window->isOpen())
     {
         sf::Event event;
@@ -105,14 +107,18 @@ void run(sf::RenderWindow* p_window, sf::TcpSocket* socket, int id)
             }
         }
 
-        if(sf::Mouse::getPosition(*p_window).x-10 > 0 and sf::Mouse::getPosition(*p_window).y-10 > 0 and sf::Mouse::getPosition(*p_window).y < 900 and sf::Mouse::getPosition(*p_window).x < 800 and (sf::Mouse::getPosition(*p_window).x != entity_tab[id-1]->getPosition().x or sf::Mouse::getPosition(*p_window).y != entity_tab[id-1]->getPosition().y))
-        {
-            entity_tab[id-1]->setPosition(sf::Mouse::getPosition(*p_window).x-10, sf::Mouse::getPosition(*p_window).y-10);
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) or sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+            p->acceleration(2);
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) or sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+            p->acceleration(3);
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left) or sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+            p->acceleration(0);
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right) or sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+            p->acceleration(1);
 
-            packet.clear();
+        packet.clear();
             packet << int(2) << id << (int) (entity_tab[id-1]->getPosition().x) << (int) (entity_tab[id-1]->getPosition().y);
             socket->send(packet);
-        }
 
         packet.clear();
         socket->receive(packet);
@@ -157,11 +163,20 @@ void run(sf::RenderWindow* p_window, sf::TcpSocket* socket, int id)
                 int X, S_X, S_Y, life;
                 if(packet >> X >> S_X >> S_Y >> life)
                 {
-                    std::vector<sf::Vector2f> shots;
+                    /*std::vector<sf::Vector2f> shots;
                     shots.push_back(sf::Vector2f(0, 10));
                     entity_tab.push_back(new vaisseau(&missile_tab, &entity_tab, shots, sf::Vector2f(S_X, S_Y), sf::Color::Red, life));
-                    entity_tab[entity_tab.size()-1]->setPosition(X, 0);
+                    entity_tab[entity_tab.size()-1]->setPosition(X, 0);*/
                 }
+                else
+                    std::cout << "packet " << ID << " impossible a lire" << std::endl;
+            }
+            else if (ID == 5)
+            {
+                int P_ID, angle;
+                if(packet >> P_ID >> angle)
+                    entity_tab[P_ID-1]->setRotation(angle-entity_tab[P_ID-1]->getRotation()
+                                                    );
                 else
                     std::cout << "packet " << ID << " impossible a lire" << std::endl;
             }
