@@ -17,6 +17,7 @@ class vaisseau
         virtual void Move(int x, int y);
 
         sf::Vector2f getPosition();
+        sf::Vector2f getSpeed();
         sf::FloatRect getGlobalBound();
         float getRotation();
         void setRotation(float angle);

@@ -66,8 +66,6 @@ void player::Shoot()
 
 void player::Move()
 {
-    m_mainShape->move(m_speed);
-
     if(m_shooting == 1)
     {
         m_speed.x =  m_speed.x - m_speed.x/6;
@@ -83,6 +81,8 @@ void player::Move()
         m_speed.x =  m_speed.x - m_speed.x/12;
         m_speed.y =  m_speed.y - m_speed.y/12;
     }
+    sf::Time time = m_clock2.restart();
+    m_mainShape->move(m_speed*(time.asSeconds()*60));;
 }
 
 void player::onHit(float degat)
@@ -90,7 +90,7 @@ void player::onHit(float degat)
 
 }
 
-void player::acceleration(int dir)//Droite Gauche Haut Bas None
+int player::acceleration(int dir)//Droite Gauche Haut Bas None
 {
     switch(dir)
     {
@@ -102,17 +102,24 @@ void player::acceleration(int dir)//Droite Gauche Haut Bas None
             break;
         case 2:
             if(m_mainShape->getRotation() != 0)
+            {
                 m_mainShape->rotate(30);
+                return 30;
+            }
             else
                 m_speed.y -= 1;
             break;
         case 3:
             if(m_mainShape->getRotation() != 180)
+            {
                 m_mainShape->rotate(30);
+                return 30;
+            }
             else
                 m_speed.y += 1;
             break;
         default:
             break;
     }
+    return 0;
 }

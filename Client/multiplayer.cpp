@@ -19,7 +19,7 @@ int multiplayer(sf::RenderWindow* p_window)
 
     // Update the window
     p_window->display();
-    while(socket.connect("localhost", 25565) != sf::Socket::Done)
+    while(socket.connect(" 88.161.60.243", 25565) != sf::Socket::Done)
     {
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
             return EXIT_SUCCESS;
@@ -80,6 +80,8 @@ void run(sf::RenderWindow* p_window, sf::TcpSocket* socket, int id)
     bool Run = true;
     socket->setBlocking(false);
 
+    mapping backgroung;
+
     std::vector<vaisseau*> entity_tab;
     std::vector<missile*> missile_tab;
 
@@ -106,19 +108,28 @@ void run(sf::RenderWindow* p_window, sf::TcpSocket* socket, int id)
                 socket->send(packet);
             }
         }
-
+        int rotation = 0;
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) or sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
-            p->acceleration(2);
+            rotation = p->acceleration(2);
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) or sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-            p->acceleration(3);
+            rotation = p->acceleration(3);
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left) or sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-            p->acceleration(0);
+            rotation = p->acceleration(0);
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right) or sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-            p->acceleration(1);
+            rotation = p->acceleration(1);
 
-        packet.clear();
-            packet << int(2) << id << (int) (entity_tab[id-1]->getPosition().x) << (int) (entity_tab[id-1]->getPosition().y);
+        if(p->getSpeed().x != 0 or p->getSpeed().y != 0)
+        {
+            packet.clear();
+            packet << int(2) << id << (int) (p->getPosition().x) << (int) (p->getPosition().y);
             socket->send(packet);
+        }
+        if(rotation != 0)
+        {
+            packet.clear();
+            packet << int(5) << id << (int) (p->getRotation());
+            socket->send(packet);
+        }
 
         packet.clear();
         socket->receive(packet);
@@ -163,10 +174,10 @@ void run(sf::RenderWindow* p_window, sf::TcpSocket* socket, int id)
                 int X, S_X, S_Y, life;
                 if(packet >> X >> S_X >> S_Y >> life)
                 {
-                    /*std::vector<sf::Vector2f> shots;
+                    std::vector<sf::Vector2f> shots;
                     shots.push_back(sf::Vector2f(0, 10));
                     entity_tab.push_back(new vaisseau(&missile_tab, &entity_tab, shots, sf::Vector2f(S_X, S_Y), sf::Color::Red, life));
-                    entity_tab[entity_tab.size()-1]->setPosition(X, 0);*/
+                    entity_tab[entity_tab.size()-1]->setPosition(X, 0);
                 }
                 else
                     std::cout << "packet " << ID << " impossible a lire" << std::endl;
@@ -189,6 +200,8 @@ void run(sf::RenderWindow* p_window, sf::TcpSocket* socket, int id)
 
 
         p_window->clear();
+
+        backgroung.Draw(p_window);
 
         for(std::vector<missile*>::size_type i = 0 ; i < missile_tab.size() ; i++)
         {

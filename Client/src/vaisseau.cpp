@@ -65,6 +65,11 @@ sf::Vector2f vaisseau::getPosition()
     return m_mainShape->getPosition();
 }
 
+sf::Vector2f vaisseau::getSpeed()
+{
+    return m_speed;
+}
+
 sf::FloatRect vaisseau::getGlobalBound()
 {
     return m_mainShape->getGlobalBounds();
@@ -77,7 +82,7 @@ float vaisseau::getRotation()
 
 void vaisseau::setRotation(float angle)
 {
-    m_mainShape->setRotation(angle);
+    m_mainShape->rotate(angle);
 }
 
 void vaisseau::setColor(sf::Color color)

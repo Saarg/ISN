@@ -53,11 +53,9 @@ void Spawn::create()
 int Spawn::formaLigne()
 {
 
-        if(m_clock2.getElapsedTime() > sf::seconds(0.5) and spawnLimit<10)
+        if(m_clock2.getElapsedTime() > sf::seconds(0.5) and spawnLimit<5)
         {
             std::vector<sf::Vector2f> shots;
-            shots.push_back(sf::Vector2f(3, 10));
-            shots.push_back(sf::Vector2f(-3, 10));
             m_entity_tab->push_back(new vaisseau(m_msList, m_entity_tab, shots, sf::Vector2f(0, 3), sf::Color::Green, 1));
             m_entity_tab->at(m_entity_tab->size()-1)->setPosition(650, -20);
             m_entity_tab->push_back(new vaisseau(m_msList, m_entity_tab, shots, sf::Vector2f(0, 3), sf::Color::Green, 1));
@@ -67,7 +65,7 @@ int Spawn::formaLigne()
             spawnLimit++;
             m_clock2.restart();
         }
-        else if(spawnLimit >= 10)
+        else if(spawnLimit >= 5)
         {
             FormaType = 0;
             spawnLimit = 0;

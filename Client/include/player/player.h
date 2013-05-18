@@ -18,7 +18,7 @@ class player: public vaisseau
         virtual void onHit(float degat);
 
 
-        void acceleration(int dir);//Droite Gauche Haut Bas None
+        int acceleration(int dir);//Droite Gauche Haut Bas None
 
 
     protected:

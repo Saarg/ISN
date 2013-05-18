@@ -8,6 +8,7 @@
 
 #include "server.h"
 #include "include/network/PacketList.h"
+#include "include/graphics/mapping.h"
 
 int multiplayer(sf::RenderWindow* p_window);
 
