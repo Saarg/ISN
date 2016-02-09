@@ -1,6 +1,6 @@
-ISN
-===
+# Projet de fin d'année d'ISN 2013
+Projet qui utilise la SFML 2.0
 
-projet de fin dannée d'ISN 2012-2013.
+##### Le projet n'est plus mis a jour
 
-gonin tibault charlot théo et milsonneau jean.
+Gonin tibault Charlot théo Milsonneau jean.
